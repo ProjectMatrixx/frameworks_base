@@ -7294,6 +7294,13 @@ public final class Settings {
         public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
 
         /**
+         * Give haptic feedback when quick settings tiles are pressed.
+         * @hide
+         */
+        @Readable
+        public static final String QS_TILES_HAPTIC_FEEDBACK = "qs_tiles_haptic_feedback";
+
+        /**
          * Haptic feedback on brightness slider
          * @hide
          */
