@@ -47,6 +47,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.os.Process;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -679,7 +680,11 @@ class AppErrors {
             }
 
             // Add paste content for Pasty option
+            String devfp = SystemProperties.get("ro.vendor.build.fingerprint", "");
+            String matrixxVers = SystemProperties.get("ro.matrixx.version", "");
             data.paste = "time: " + timeMillis + "\n" +
+            "device fp:" + devfp + "\n" +
+            "everest vers:" + matrixxVers + "\n" +
             "msg: " + longMsg + "\n" +
             "stacktrace: " + stackTrace;
 
