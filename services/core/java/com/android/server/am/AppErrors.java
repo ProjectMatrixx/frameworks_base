@@ -680,11 +680,13 @@ class AppErrors {
             }
 
             // Add paste content for Pasty option
-            String devfp = SystemProperties.get("ro.vendor.build.fingerprint", "");
+            String devFP = SystemProperties.get("ro.vendor.build.fingerprint", "");
             String matrixxVers = SystemProperties.get("ro.matrixx.version", "");
+            String boardName = SystemProperties.get("ro.product.board", "");
             data.paste = "time: " + timeMillis + "\n" +
-            "device fp:" + devfp + "\n" +
-            "everest vers:" + matrixxVers + "\n" +
+            "device fp:" + devFP + "\n" +
+            "product board:" + boardName + "\n" +
+            "matrixx vers:" + matrixxVers + "\n" +
             "msg: " + longMsg + "\n" +
             "stacktrace: " + stackTrace;
 
