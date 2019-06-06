@@ -177,10 +177,6 @@ public class Notifier {
     // True if the device should suspend when the screen is off due to proximity.
     private final boolean mSuspendWhenScreenOffDueToProximityConfig;
 
-    // True if the device should show the wireless charging animation when the device
-    // begins charging wirelessly
-    private final boolean mShowWirelessChargingAnimationConfig;
-
     // Encapsulates interactivity information about a particular display group.
     private static class Interactivity {
         public boolean isInteractive = true;
@@ -263,8 +259,6 @@ public class Notifier {
 
         mSuspendWhenScreenOffDueToProximityConfig = context.getResources().getBoolean(
                 com.android.internal.R.bool.config_suspendWhenScreenOffDueToProximity);
-        mShowWirelessChargingAnimationConfig = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_showBuiltinWirelessChargingAnim);
 
         mFullWakeLockLog = mInjector.getWakeLockLog(context);
         mPartialWakeLockLog = mInjector.getWakeLockLog(context);
