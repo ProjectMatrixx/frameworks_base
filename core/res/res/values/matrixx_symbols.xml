@@ -98,4 +98,12 @@
     <java-symbol type="string" name="config_cpu_temp_path" />
     <java-symbol type="integer" name="config_sysCPUTempMultiplier" />
     <java-symbol type="integer" name="config_sysBatteryTempMultiplier" />
+
+    <!-- Sleep Mode -->
+    <java-symbol type="drawable" name="ic_sleep" />
+    <java-symbol type="string" name="notification_channel_sleep" />
+    <java-symbol type="string" name="sleep_mode_notification_title" />
+    <java-symbol type="string" name="sleep_mode_notification_content" />
+    <java-symbol type="string" name="sleep_mode_enabled_toast" />
+    <java-symbol type="string" name="sleep_mode_disabled_toast" />
 </resources>
