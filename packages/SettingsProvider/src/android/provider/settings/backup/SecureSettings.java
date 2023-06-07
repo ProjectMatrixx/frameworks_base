@@ -290,5 +290,7 @@ public class SecureSettings {
         Settings.Secure.ADVANCED_PROTECTION_MODE,
         Settings.Secure.ACCESSIBILITY_KEY_GESTURE_TARGETS,
         Settings.Secure.MEDIA_CONTROLS_ALWAYS_SHOW_TIME,
+        Settings.Secure.EXTRA_DIM_AUTO_MODE,
+        Settings.Secure.EXTRA_DIM_AUTO_TIME
     };
 }
