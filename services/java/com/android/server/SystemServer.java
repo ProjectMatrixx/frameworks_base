@@ -1782,6 +1782,10 @@ public final class SystemServer implements Dumpable {
             mSystemServiceManager.startService(AppIntegrityManagerService.class);
             t.traceEnd();
 
+            t.traceBegin("StartSmart5gService");
+            mSystemServiceManager.startService(Smart5gService.class);
+            t.traceEnd();
+            
             t.traceBegin("StartLogcatManager");
             mSystemServiceManager.startService(LogcatManagerService.class);
             t.traceEnd();
