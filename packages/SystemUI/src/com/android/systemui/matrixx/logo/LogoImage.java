@@ -217,6 +217,9 @@ public abstract class LogoImage extends ImageView implements DarkReceiver {
             case 32:
                 drawable = mContext.getResources().getDrawable(R.drawable.ic_matrixx_logo);
                 break;
+            case 33:
+                drawable = mContext.getResources().getDrawable(R.drawable.ic_amogus);
+                break;
         }
 
         drawable.setTint(mTintColor);
