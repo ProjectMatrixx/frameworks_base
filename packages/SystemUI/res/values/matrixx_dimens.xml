@@ -24,4 +24,7 @@
     <declare-styleable name="ProgressImageView">
         <attr name="typeface" format="string" />
     </declare-styleable>
+
+    <!-- HD calling icon -->
+    <dimen name="signal_icon_viewport_size">24dp</dimen>
 </resources>

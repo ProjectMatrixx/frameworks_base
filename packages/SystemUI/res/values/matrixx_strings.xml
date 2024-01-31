@@ -308,4 +308,10 @@
     <string name="quick_settings_smart_pixels_off">Off</string>
     <string name="smart_pixels_percent_label">Pixel percentage</string>
     <string name="smart_pixels_percent_format"><xliff:g id="percent" example="25">%d</xliff:g>%%</string>
+
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD calling (VoLTE/VoNR)</string>
+
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi calling (VoWiFi)</string>
 </resources>
