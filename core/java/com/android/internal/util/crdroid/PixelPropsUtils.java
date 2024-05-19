@@ -76,7 +76,8 @@ public class PixelPropsUtils {
             "com.google.android.googlequicksearchbox",
             "com.google.android.settings.intelligence",
             "com.google.android.wallpaper.effects",
-            "com.google.pixel.livewallpaper"
+            "com.google.pixel.livewallpaper",
+            "com.google.android.apps.nexuslauncher"
     };
 
     // Packages to Spoof as Pixel 5a
