@@ -84,6 +84,7 @@ import com.android.server.DisplayThread;
 import com.android.server.LocalServices;
 import com.android.server.SystemService;
 import com.android.server.accessibility.Flags;
+import com.android.server.display.color.ColorDisplayService.TintValueAnimator;
 import com.android.server.display.feature.DisplayManagerFlags;
 import com.android.server.pm.UserManagerService;
 import com.android.server.twilight.TwilightListener;
@@ -125,6 +126,7 @@ public final class ColorDisplayService extends SystemService {
     private static final int MSG_APPLY_GLOBAL_SATURATION = 4;
     private static final int MSG_APPLY_DISPLAY_WHITE_BALANCE = 5;
     private static final int MSG_APPLY_REDUCE_BRIGHT_COLORS = 6;
+    private static final int MSG_APPLY_UPDATE_DISPLAY_ENGINE = 7;
 
     /**
      * Return value if a setting has not been set.
@@ -175,6 +177,8 @@ public final class ColorDisplayService extends SystemService {
     private final TintController mGlobalSaturationTintController =
             new GlobalSaturationTintController();
     private final ReduceBrightColorsTintController mReduceBrightColorsTintController;
+    private final DisplayEngineController mDisplayEngineController =
+            new DisplayEngineController();
 
     @VisibleForTesting
     final Handler mHandler;
@@ -400,6 +404,9 @@ public final class ColorDisplayService extends SystemService {
                                 onReduceBrightColorsStrengthLevelChanged();
                                 mHandler.sendEmptyMessage(MSG_APPLY_REDUCE_BRIGHT_COLORS);
                                 break;
+                            case DisplayEngineController.DISPLAY_ENGINE_MODE:
+                                mHandler.sendEmptyMessage(MSG_APPLY_UPDATE_DISPLAY_ENGINE);
+                                break;
                         }
                     }
                 }
@@ -430,6 +437,8 @@ public final class ColorDisplayService extends SystemService {
         cr.registerContentObserver(Secure.getUriFor(Secure.REDUCE_BRIGHT_COLORS_ACTIVATED),
                 false /* notifyForDescendants */, mContentObserver, mCurrentUser);
         cr.registerContentObserver(Secure.getUriFor(Secure.REDUCE_BRIGHT_COLORS_LEVEL),
+                false /* notifyForDescendants */, mContentObserver, mCurrentUser);
+        cr.registerContentObserver(Secure.getUriFor(DisplayEngineController.DISPLAY_ENGINE_MODE),
                 false /* notifyForDescendants */, mContentObserver, mCurrentUser);
         if (Flags.enableColorCorrectionSaturation()) {
             cr.registerContentObserver(
@@ -482,6 +491,10 @@ public final class ColorDisplayService extends SystemService {
                 onReduceBrightColorsActivationChanged(/*userInitiated*/ false);
                 mHandler.sendEmptyMessage(MSG_APPLY_REDUCE_BRIGHT_COLORS);
             }
+        }
+        
+        if (mDisplayEngineController.isAvailable(getContext())) {
+            mHandler.sendEmptyMessage(MSG_APPLY_UPDATE_DISPLAY_ENGINE);
         }
     }
 
@@ -1819,6 +1832,10 @@ public final class ColorDisplayService extends SystemService {
                     break;
                 case MSG_APPLY_DISPLAY_WHITE_BALANCE:
                     applyTintByCct(mDisplayWhiteBalanceTintController, false);
+                    break;
+                case MSG_APPLY_UPDATE_DISPLAY_ENGINE:
+                    mDisplayEngineController.updateBalance(getContext(), mCurrentUser);
+                    applyTint(mDisplayEngineController, true);
                     break;
             }
         }

@@ -866,12 +866,10 @@ public class WindowManagerService extends IWindowManager.Stub
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(mMaximumObscuringOpacityForTouchUri, false, this,
                     UserHandle.USER_ALL);
-<<<<<<< HEAD
             resolver.registerContentObserver(mDevelopmentOverrideDesktopExperienceUri, false, this,
-=======
-            resolver.registerContentObserver(mHideScreenCaptureUri, false, this,
->>>>>>> 983aae8685df (base: Allow to hide screen capture status from apps [1/2])
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(mHideScreenCaptureUri, false, this,
+                    UserHandle.USER_ALL);                    
         }
 
         @Override
