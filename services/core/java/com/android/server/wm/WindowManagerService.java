@@ -822,6 +822,8 @@ public class WindowManagerService extends IWindowManager.Stub
 
     final TrustedPresentationListenerController mTrustedPresentationListenerController =
             new TrustedPresentationListenerController();
+            
+    private boolean mShouldHideScreenCapture;
 
     @VisibleForTesting
     final class SettingsObserver extends ContentObserver {
@@ -851,6 +853,8 @@ public class WindowManagerService extends IWindowManager.Stub
                 DEVELOPMENT_WM_DISPLAY_SETTINGS_PATH);
         private final Uri mMaximumObscuringOpacityForTouchUri = Settings.Global.getUriFor(
                 Settings.Global.MAXIMUM_OBSCURING_OPACITY_FOR_TOUCH);
+        private final Uri mHideScreenCaptureUri = Settings.System.getUriFor(
+                "hide_screen_capture_status");
 
         public SettingsObserver() {
             super(new Handler());
@@ -877,6 +881,8 @@ public class WindowManagerService extends IWindowManager.Stub
             resolver.registerContentObserver(mDisplaySettingsPathUri, false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(mMaximumObscuringOpacityForTouchUri, false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(mHideScreenCaptureUri, false, this,
                     UserHandle.USER_ALL);
         }
 
@@ -920,6 +926,11 @@ public class WindowManagerService extends IWindowManager.Stub
                 updateMaximumObscuringOpacityForTouch();
                 return;
             }
+            
+            if (mHideScreenCaptureUri.equals(uri)) {
+                updateHideScreenCapture();
+                return;
+            }
 
             if (mDisableSecureWindowsUri.equals(uri)) {
                 updateDisableSecureWindows();
@@ -946,6 +957,7 @@ public class WindowManagerService extends IWindowManager.Stub
             updateSystemUiSettings(false /* handleChange */);
             updateMaximumObscuringOpacityForTouch();
             updateDisableSecureWindows();
+            updateHideScreenCapture();
         }
 
         void updateMaximumObscuringOpacityForTouch() {
@@ -958,6 +970,11 @@ public class WindowManagerService extends IWindowManager.Stub
                 mMaximumObscuringOpacityForTouch =
                         InputSettings.DEFAULT_MAXIMUM_OBSCURING_OPACITY_FOR_TOUCH;
             }
+        }
+        
+        void updateHideScreenCapture() {
+            mShouldHideScreenCapture = Settings.System.getIntForUser(mContext.getContentResolver(),
+                "hide_screen_capture_status", 0, UserHandle.USER_CURRENT) != 0;
         }
 
         void updateSystemUiSettings(boolean handleChange) {
@@ -10319,6 +10336,7 @@ public class WindowManagerService extends IWindowManager.Stub
             throw new SecurityException("Requires STATUS_BAR_SERVICE permission");
         }
         synchronized (mGlobalLock) {
+            if (mShouldHideScreenCapture) return new ArrayList<>();
             final DisplayContent displayContent = mRoot.getDisplayContent(displayId);
             if (displayContent == null) {
                 return new ArrayList<>();
@@ -10420,6 +10438,9 @@ public class WindowManagerService extends IWindowManager.Stub
     @EnforcePermission(android.Manifest.permission.DETECT_SCREEN_RECORDING)
     @Override
     public boolean registerScreenRecordingCallback(IScreenRecordingCallback callback) {
+        if (mShouldHideScreenCapture) {
+            return false;
+        }
         registerScreenRecordingCallback_enforcePermission();
         return mScreenRecordingCallbackController.register(callback);
     }
@@ -10432,6 +10453,9 @@ public class WindowManagerService extends IWindowManager.Stub
     }
 
     void onProcessActivityVisibilityChanged(int uid, boolean visible) {
+        if (mShouldHideScreenCapture) {
+            return;
+        }
         mScreenRecordingCallbackController.onProcessActivityVisibilityChanged(uid, visible);
     }
 
