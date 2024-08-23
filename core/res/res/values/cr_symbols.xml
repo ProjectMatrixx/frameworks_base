@@ -5,6 +5,9 @@
 -->
 <resources>
 
+    <!-- Prop/KeyboxImitationHooks -->
+    <java-symbol type="array" name="config_certifiedKeybox" />
+
     <!-- Light / Regular style fonts -->
     <java-symbol type="string" name="config_lightFontFamily" />
     <java-symbol type="string" name="config_regularFontFamily" />
