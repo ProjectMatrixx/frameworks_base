@@ -431,4 +431,20 @@ public final class PixelPropsUtils {
             throw new UnsupportedOperationException();
         }
     }
+
+    private static boolean isCallerSafetyNet() {
+        return Arrays.stream(Thread.currentThread().getStackTrace())
+                        .anyMatch(elem -> elem.getClassName().toLowerCase()
+                            .contains("droidguard"));
+    }
+
+    public static void onEngineGetCertificateChain() {
+        if (!SystemProperties.getBoolean(SPOOF_PIXEL_PI, true))
+            return;
+        // Check stack for SafetyNet or Play Integrity
+        if ((isCallerSafetyNet() || sIsFinsky) && !sIsExcluded) {
+            Log.i(TAG, "Blocked key attestation");
+            throw new UnsupportedOperationException();
+        }
+    }
 }
