@@ -192,7 +192,6 @@
     <!-- Internet -->
     <string name="status_bar_settings_network_speed">Internet speed</string>
 
-<<<<<<< HEAD:packages/SystemUI/res/values/matrixx_strings.xml
     <!-- USB Mode Picker -->
     <string name="usb_mode_picker_title">Select USB mode</string>
     <string name="usb_mode_file_transfer">File transfer</string>
@@ -211,4 +210,7 @@
     <string name="usb_use_tethering">USB tethering</string>
     <string name="usb_use_MIDI">MIDI</string>
     <string name="usb_use">Use USB for</string>
+
+    <!-- System Theme Re-evaluation Toast -->
+    <string name="reevaluating_system_theme">Re-evaluating system theme.. Please wait for a few seconds</string>
 </resources>
