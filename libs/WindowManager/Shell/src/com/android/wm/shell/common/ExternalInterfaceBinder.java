@@ -53,7 +53,7 @@ public interface ExternalInterfaceBinder {
     default <T> void executeRemoteCallWithTaskPermission(RemoteCallable<T> controllerInstance,
             String log, Consumer<T> callback, boolean blocking) {
         if (controllerInstance == null) return;
-
+        
         final RemoteCallable<T> controller = controllerInstance;
         controllerInstance.getContext().enforceCallingPermission(
                 Manifest.permission.MANAGE_ACTIVITY_TASKS, log);
