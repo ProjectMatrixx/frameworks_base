@@ -22,11 +22,15 @@ public class MatrixxServicesStarter {
 
     private final SystemServiceManager mSystemServiceManager;
 
+    private static final String QUICKSWITCH_SERVICE_CLASS =
+             "org.matrixx.server.QuickSwitchService";
+
     public MatrixxServicesStarter(SystemServiceManager systemServiceManager) {
         this.mSystemServiceManager = systemServiceManager;
     }
 
     public void startAllServices() {
+        startService(QUICKSWITCH_SERVICE_CLASS);
     }
 
     private void startService(String serviceClassName) {

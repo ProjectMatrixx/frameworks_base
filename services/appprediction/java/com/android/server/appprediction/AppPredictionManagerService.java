@@ -186,7 +186,10 @@ public class AppPredictionManagerService extends
                     sessionId.getUserId(), false, ALLOW_NON_FULL, null, null);
 
             Context ctx = getContext();
+            boolean isAllowed = com.android.internal.util.android.BypassUtils.isSystemLauncher(Binder.getCallingUid());
+            
             if (!(ctx.checkCallingPermission(PACKAGE_USAGE_STATS) == PERMISSION_GRANTED
+                    || isAllowed
                     || mServiceNameResolver.isTemporary(userId)
                     || mActivityTaskManagerInternal.isCallerRecents(Binder.getCallingUid())
                     || Binder.getCallingUid() == Process.SYSTEM_UID)) {
