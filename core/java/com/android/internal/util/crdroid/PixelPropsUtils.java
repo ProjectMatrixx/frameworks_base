@@ -43,6 +43,7 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = SystemProperties.getBoolean(PROP_HOOKS + "DEBUG", false);
 
     private static final String SPOOF_PIXEL_GMS = "persist.sys.pixelprops.gms";
+    private static final String SPOOF_PIXEL_PI = "persist.sys.pixelprops.pi";
     private static final String SPOOF_PIXEL_GPHOTOS = "persist.sys.pixelprops.gphotos";
     private static final String SPOOF_PIXEL_NETFLIX = "persist.sys.pixelprops.netflix";
     private static final String ENABLE_GAME_PROP_OPTIONS = "persist.sys.gameprops.enabled";
@@ -129,7 +130,6 @@ public class PixelPropsUtils {
             "com.google.android.apps.nexuslauncher",
             "com.google.android.inputmethod.latin",
             "com.google.android.tts",
-            "com.google.android.wallpaper.effects"
             "com.netflix.mediaclient"
         };
 
@@ -154,7 +154,6 @@ public class PixelPropsUtils {
                 }
                 }
             }
-        }
 
 
 	if (packageName.equals("com.snapchat.android")) {
@@ -167,7 +166,7 @@ public class PixelPropsUtils {
                     return;
                 }
             }
-        }
+	}
 
         if (!propsToChange.isEmpty()) {
             if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
@@ -325,6 +324,10 @@ public class PixelPropsUtils {
     }
 
     public static void onEngineGetCertificateChain() {
+
+        if (!SystemProperties.getBoolean(SPOOF_PIXEL_PI, true))
+            return;
+
         // Check stack for SafetyNet or Play Integrity
         if (isCallerSafetyNet()) {
             Log.i(TAG, "Blocked key attestation");
