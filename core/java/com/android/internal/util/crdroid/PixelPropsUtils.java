@@ -48,7 +48,7 @@ public class PixelPropsUtils {
     private static final String ENABLE_GAME_PROP_OPTIONS = "persist.sys.gameprops.enabled";
     private static final String SPOOF_PIXEL_GOOGLE_APPS = "persist.sys.pixelprops.google";
 
-    private static final Map<String, Object> propsToChangePixel8Pro;
+    private static final Map<String, Object> propsToChangePixel9ProXL;
     private static final Map<String, Object> propsToChangePixelXL;
 
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
@@ -67,13 +67,15 @@ public class PixelPropsUtils {
     );
 
     static {
-        propsToChangePixel8Pro = new HashMap<>();
-        propsToChangePixel8Pro.put("BRAND", "google");
-        propsToChangePixel8Pro.put("MANUFACTURER", "Google");
-        propsToChangePixel8Pro.put("DEVICE", "husky");
-        propsToChangePixel8Pro.put("PRODUCT", "husky");
-        propsToChangePixel8Pro.put("MODEL", "Pixel 8 Pro");
-        propsToChangePixel8Pro.put("FINGERPRINT", "google/husky/husky:14/AP2A.240705.005.A1/11944170:user/release-keys");
+        propsToChangePixel9ProXL  = new HashMap<>();
+        propsToChangePixel9ProXL.put("BRAND", "google");
+        propsToChangePixel9ProXL.put("MANUFACTURER", "Google");
+        propsToChangePixel9ProXL.put("DEVICE", "komodo");
+        propsToChangePixel9ProXL.put("PRODUCT", "komodo");
+        propsToChangePixel9ProXL.put("HARDWARE", "komodo");
+        propsToChangePixel9ProXL.put("MODEL", "Pixel 9 Pro XL");
+        propsToChangePixel9ProXL.put("ID", "AP3A.241105.008");
+        propsToChangePixel9ProXL.put("FINGERPRINT", "google/komodo/komodo:15/AP3A.241105.008/12485168:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
@@ -123,7 +125,7 @@ public class PixelPropsUtils {
 
         if (Arrays.asList(packagesToChangePixel8Pro).contains(packageName) && !isExcludedProcess) {
             if (SystemProperties.getBoolean(SPOOF_PIXEL_GOOGLE_APPS, true)) {
-                    propsToChange.putAll(propsToChangePixel8Pro);
+                    propsToChange.putAll(propsToChangePixel9ProXL);
             } else if (packageName.equals("com.netflix.mediaclient") && 
                         !SystemProperties.getBoolean(SPOOF_PIXEL_NETFLIX, false)) {
                     if (DEBUG) Log.d(TAG, "Netflix spoofing disabled by system prop");
@@ -136,7 +138,7 @@ public class PixelPropsUtils {
                 propsToChange.putAll(propsToChangePixelXL);
             } else {
                 if (!isPixelDevice) {
-                    propsToChange.putAll(propsToChangePixel8Pro);
+                    propsToChange.putAll(propsToChangePixel9ProXL);
                 }
             }
         }
