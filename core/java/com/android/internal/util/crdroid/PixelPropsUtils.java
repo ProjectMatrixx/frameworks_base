@@ -50,10 +50,11 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChangePixel9ProXL;
     private static final Map<String, Object> propsToChangePixelXL;
+    private static final Map<String, Object> propsToChangePixel5a;
 
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
             "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
-            
+
     private static final Map<String, String> DEFAULT_VALUES = Map.of(
         "BRAND", "google",
         "MANUFACTURER", "Google",
@@ -83,6 +84,15 @@ public class PixelPropsUtils {
         propsToChangePixelXL.put("PRODUCT", "marlin");
         propsToChangePixelXL.put("MODEL", "Pixel XL");
         propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
+        propsToChangePixel5a = new HashMap<>();
+        propsToChangePixel5a.put("BRAND", "google");
+        propsToChangePixel5a.put("MANUFACTURER", "Google");
+        propsToChangePixel5a.put("DEVICE", "barbet");
+        propsToChangePixel5a.put("PRODUCT", "barbet");
+        propsToChangePixel5a.put("HARDWARE", "barbet");
+        propsToChangePixel5a.put("MODEL", "Pixel 5a");
+        propsToChangePixel5a.put("ID", "AP2A.240805.005");
+        propsToChangePixel5a.put("FINGERPRINT", "google/barbet/barbet:14/AP2A.240805.005/12025142:user/release-keys");
     }
 
     public static void setProps(String packageName) {
@@ -138,7 +148,10 @@ public class PixelPropsUtils {
                 propsToChange.putAll(propsToChangePixelXL);
             } else {
                 if (!isPixelDevice) {
-                    propsToChange.putAll(propsToChangePixel9ProXL);
+                    if (processName.toLowerCase().contains("gservice")){
+                        propsToChange.putAll(propsToChangePixel5a);
+                    }	
+                }
                 }
             }
         }
