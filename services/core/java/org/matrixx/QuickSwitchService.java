@@ -19,6 +19,7 @@ package org.matrixx.server;
 import static android.os.Process.THREAD_PRIORITY_DEFAULT;
 
 import android.app.ActivityManager;
+import android.app.ActivityThread;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -45,13 +46,6 @@ import java.util.List;
 
 public final class QuickSwitchService extends SystemService {
 
-    private static final List<String> LAUNCHER_PACKAGES = List.of(
-        "com.android.launcher3",
-        "com.google.android.apps.nexuslauncher",
-        "app.lawnchair",
-        "com.nothing.launcher"
-    );
-
     private static final String TAG = "QuickSwitchService";
     private static final int THREAD_PRIORITY_DEFAULT = android.os.Process.THREAD_PRIORITY_DEFAULT;
 
@@ -64,8 +58,29 @@ public final class QuickSwitchService extends SystemService {
     private ServiceThread mWorker;
     private Handler mHandler;
 
+    private static List<String> LAUNCHER_PACKAGES = null;
     private static List<String> disabledLaunchersCache = null;
     private static int lastDefaultLauncher = -1;
+
+    static {
+        if (LAUNCHER_PACKAGES == null) {
+            try {
+                Context context = ActivityThread.currentApplication() != null ?
+                        ActivityThread.currentApplication().getApplicationContext() : null;
+                if (context != null) {
+                    String[] launcherPackages = context.getResources().getStringArray(com.android.internal.R.array.config_launcherPackages);
+                    LAUNCHER_PACKAGES = new ArrayList<>();
+                    for (String packageName : launcherPackages) {
+                        LAUNCHER_PACKAGES.add(packageName);
+                    }
+                } else {
+                    LAUNCHER_PACKAGES = new ArrayList<>();
+                }
+            } catch (Exception e) {
+                LAUNCHER_PACKAGES = new ArrayList<>();
+            }
+        }
+    }
 
     public static boolean shouldHide(int userId, String packageName) {
         return packageName != null && getDisabledDefaultLaunchers().contains(packageName);
@@ -91,21 +106,22 @@ public final class QuickSwitchService extends SystemService {
         int defaultLauncher = SystemProperties.getInt("persist.sys.default_launcher", 0);
         try {
             for (String packageName : LAUNCHER_PACKAGES) {
-                try {
-                    if (packageName.equals(LAUNCHER_PACKAGES.get(defaultLauncher))) {
-                        mPM.setApplicationEnabledSetting(packageName,
-                                PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
-                                0, userId, mOpPackageName);
-                    } else {
-                        mPM.setApplicationEnabledSetting(packageName,
-                                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                                0, userId, mOpPackageName);
-                    }
-                } catch (IllegalArgumentException ignored) {}
+                if (packageName.equals("com.android.launcher3") && defaultLauncher == 2) {
+                    mPM.setApplicationEnabledSetting(packageName,
+                            PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
+                            0, userId, mOpPackageName);
+                } else if (packageName.equals(LAUNCHER_PACKAGES.get(defaultLauncher))) {
+                    mPM.setApplicationEnabledSetting(packageName,
+                            PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
+                            0, userId, mOpPackageName);
+                } else {
+                    mPM.setApplicationEnabledSetting(packageName,
+                            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                            0, userId, mOpPackageName);
+                }
             }
-        } catch (RemoteException e) {
-            e.rethrowAsRuntimeException();
-        }
+        } catch (IllegalArgumentException ignored) {}
+        catch (RemoteException e) {}
     }
 
     public static List<String> getDisabledDefaultLaunchers() {
@@ -114,7 +130,7 @@ public final class QuickSwitchService extends SystemService {
             lastDefaultLauncher = defaultLauncher;
             List<String> disabledDefaultLaunchers = new ArrayList<>();
             for (int i = 0; i < LAUNCHER_PACKAGES.size(); i++) {
-                if (i != defaultLauncher) {
+                if (i != defaultLauncher && !(i == 0 && defaultLauncher == 2)) {
                     disabledDefaultLaunchers.add(LAUNCHER_PACKAGES.get(i));
                 }
             }
