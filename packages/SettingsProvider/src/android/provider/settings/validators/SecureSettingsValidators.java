@@ -453,5 +453,6 @@ public class SecureSettingsValidators {
                 new InclusiveIntegerRangeValidator(0, 1));
         VALIDATORS.put(Secure.ADVANCED_PROTECTION_MODE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.MEDIA_CONTROLS_ALWAYS_SHOW_TIME, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(Secure.HIDE_APPLIST, ANY_STRING_VALIDATOR);
     }
 }

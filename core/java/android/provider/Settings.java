@@ -13814,6 +13814,13 @@ public final class Settings {
         public static final String SHOW_FPS_OVERLAY = "show_fps_overlay";
 
         /**
+         * Control which apps to hide from other user apps.
+         * @hide
+         */
+        @Readable
+        public static final String HIDE_APPLIST = "hide_applist";
+
+        /**
          * Whether to show ambient instead of waking for the tap gesture
          * @hide
          */
