@@ -120,4 +120,11 @@ public class TileUtils {
                 Settings.System.QS_TILE_UI_STYLE,
                 0, UserHandle.USER_CURRENT);
    }
+
+   public static boolean canShowSplitShade(Context context) {
+    return Settings.System.getIntForUser(context.getContentResolver(), 
+        "qs_split_shade_enabled",0, UserHandle.USER_CURRENT) != 0
+        && context.getResources().getConfiguration().orientation 
+        == Configuration.ORIENTATION_LANDSCAPE;
+    }
 }
