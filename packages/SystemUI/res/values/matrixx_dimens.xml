@@ -103,4 +103,7 @@
 
     <!-- Face unlock icon -->
     <dimen name="face_unlock_icon_margin_top">6dp</dimen>
+
+    <!-- Biometric view -->
+    <dimen name="biometric_indicator_above_margin_bottom">8dp</dimen>
 </resources>
