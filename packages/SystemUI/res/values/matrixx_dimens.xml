@@ -120,9 +120,6 @@
     <dimen name="network_speed_view_padding_end">2dp</dimen>
     <dimen name="network_speed_view_width">22dp</dimen>
 
-    <!-- Weather -->  
-    <dimen name="weather_image_max_size">24dp</dimen>
-
     <!-- Lockscreen Clock/AOD -->  
     <dimen name="custom_aod_image_size">180dp</dimen>
     <dimen name="custom_clock_frame_margin_top">0dp</dimen>
