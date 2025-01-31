@@ -59,13 +59,13 @@ public class PixelPropsUtils {
     private static final Map<String, String> DEFAULT_VALUES = Map.of(
         "BRAND", "google",
         "MANUFACTURER", "Google",
-        "DEVICE", "komodo",
-        "FINGERPRINT", "google/komodo_beta/komodo:15/BP11.241121.010/12780007:user/release-keys",
-        "MODEL", "Pixel 9 Pro XL",
-        "PRODUCT", "komodo_beta",
+        "DEVICE", "comet",
+        "FINGERPRINT", "google/comet_beta/comet:15/BP11.241121.013/12873528:user/release-keys",
+        "MODEL", "Pixel 9 Pro Fold",
+        "PRODUCT", "comet_beta",
         "DEVICE_INITIAL_SDK_INT", "35",
-        "SECURITY_PATCH", "2024-12-05",
-        "ID", "BP11.241121.010"
+        "SECURITY_PATCH", "2025-01-06",
+        "ID", "BP11.241121.013"
     );
 
     static {
