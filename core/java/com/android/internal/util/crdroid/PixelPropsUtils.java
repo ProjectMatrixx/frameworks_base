@@ -76,8 +76,8 @@ public class PixelPropsUtils {
         propsToChangePixel9ProXL.put("PRODUCT", "komodo");
         propsToChangePixel9ProXL.put("HARDWARE", "komodo");
         propsToChangePixel9ProXL.put("MODEL", "Pixel 9 Pro XL");
-        propsToChangePixel9ProXL.put("ID", "AP3A.241105.008");
-        propsToChangePixel9ProXL.put("FINGERPRINT", "google/komodo/komodo:15/AP3A.241105.008/12485168:user/release-keys");
+        propsToChangePixel9ProXL.put("ID", "AP4A.250205.002");
+        propsToChangePixel9ProXL.put("FINGERPRINT", "google/komodo/komodo:15/AP4A.250205.002/12821496:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
