@@ -6977,6 +6977,11 @@ public final class Settings {
         /**
          * @hide
          */
+        public static final String ONGOING_ACTION_CHIP = "ongoing_action_chip";
+
+        /**
+         * @hide
+         */
         public static final String LOCKSCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
 
         /**
