@@ -2920,6 +2920,8 @@ public final class SystemServer implements Dumpable {
                 t.traceEnd();
             }
 
+            mSystemServiceManager.startService(HideAppListService.class);
+
             boolean hbmSupported = SystemProperties.getBoolean("persist.sys.hbmservice_support", false);
             String hbmFile = SystemProperties.get("persist.sys.hbmservice_file");
             if (hbmSupported && hbmFile != null && !hbmFile.isEmpty()) {
