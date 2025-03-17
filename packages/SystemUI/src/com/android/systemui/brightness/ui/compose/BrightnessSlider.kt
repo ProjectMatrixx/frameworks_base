@@ -123,9 +123,9 @@ private fun BrightnessSlider(
             val brightnessColors = PlatformSliderColors(
                         trackColor = colors.inactiveBackground,
                         indicatorColor = colors.activeBackground,
-                        iconColor = MaterialTheme.colorScheme.onPrimary,
-                        labelColorOnIndicator = MaterialTheme.colorScheme.onPrimary,
-                        labelColorOnTrack = MaterialTheme.colorScheme.onSecondaryContainer,
+                        iconColor = colors.activeLabel,
+                        labelColorOnIndicator = colors.activeLabel,
+                        labelColorOnTrack = colors.inactiveLabel,
                         disabledTrackColor = MaterialTheme.colorScheme.surfaceContainerHighest,
                         disabledIndicatorColor = MaterialTheme.colorScheme.surfaceContainerHighest,
                         disabledIconColor = MaterialTheme.colorScheme.outline,
@@ -168,9 +168,7 @@ private fun BrightnessSlider(
                 },
                 label = {
                     Text(
-                        text = stringResource(id = label.res),
-                        style = MaterialTheme.typography.titleMedium,
-                        maxLines = 1,
+                        text = "",
                     )
                 },
                 interactionSource = interactionSource,
