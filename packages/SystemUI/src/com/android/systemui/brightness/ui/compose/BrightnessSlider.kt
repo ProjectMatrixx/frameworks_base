@@ -159,17 +159,15 @@ private fun BrightnessSlider(
                         }
                     },
                 colors = brightnessColors,
-                icon = { isDragging ->
+                icon = {
+                    Icon(modifier = Modifier.size(24.dp), icon = icon)
+                },
+                label = { isDragging ->
                     if (isDragging) {
                         Text(text = formatter(value))
                     } else {
-                        Icon(modifier = Modifier.size(24.dp), icon = icon)
+                        Text(text = "")
                     }
-                },
-                label = {
-                    Text(
-                        text = "",
-                    )
                 },
                 interactionSource = interactionSource,
             )
