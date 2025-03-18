@@ -745,7 +745,7 @@ constructor(
                             modifier =
                                 Modifier.fillMaxWidth()
                                     .sysuiResTag(ResIdTags.quickSettingsPanel)
-                                    .padding(top = 8.dp)
+                                    .padding(top = QuickSettingsShade.Dimensions.Padding),
                         ) {
                             QuickSettingsLayout(
                                 brightness = BrightnessSlider,
