@@ -6982,6 +6982,11 @@ public final class Settings {
         /**
          * @hide
          */
+        public static final String SHOW_MEDIA_PROGRESS = "show_media_progress";
+
+        /**
+         * @hide
+         */
         public static final String LOCKSCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
 
         /**
