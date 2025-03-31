@@ -30,8 +30,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.android.settingslib.Utils;
-
 import com.android.systemui.res.R;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
@@ -227,12 +225,6 @@ public class BrightnessMirrorController implements MirrorController {
             mIcon.setBackgroundResource(isAutomatic
                     ? R.drawable.bg_qs_brightness_auto_on
                     : R.drawable.bg_qs_brightness_auto_off);
-            int color = Utils.getColorAttrDefaultColor(mBrightnessMirror.getContext(), isAutomatic 
-                    ? android.R.attr.textColorPrimaryInverse 
-                    : android.R.attr.colorAccent);
-            mIcon.post(() -> {
-                mIcon.getDrawable().setTint(color);
-            });
             mIcon.setVisibility(View.VISIBLE);
         } else {
             mIcon.setVisibility(View.GONE);
