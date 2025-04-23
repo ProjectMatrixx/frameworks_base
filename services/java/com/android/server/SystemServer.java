@@ -2827,6 +2827,7 @@ public final class SystemServer implements Dumpable {
             t.traceBegin("GameSpaceManagerService");
             mSystemServiceManager.startService(GameSpaceManagerService.class);
             t.traceEnd();
+            mSystemServiceManager.startService(PinnedTaskService.class);
         }
 
         t.traceBegin("StartMediaProjectionManager");
