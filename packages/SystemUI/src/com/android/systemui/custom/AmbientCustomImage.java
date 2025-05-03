@@ -47,7 +47,7 @@ import java.io.InputStream;
 import java.util.Calendar;
 
 import com.android.internal.util.crdroid.ImageHelper;
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 public class AmbientCustomImage extends FrameLayout {
 

@@ -24,7 +24,7 @@ import android.view.View;
 
 import com.android.app.animation.Interpolators;
 import com.android.systemui.keyguard.MigrateClocksToBlueprint;
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 import com.android.systemui.custom.AmbientText;
 import com.android.systemui.custom.AmbientCustomImage;
 import com.android.systemui.log.LogBuffer;
