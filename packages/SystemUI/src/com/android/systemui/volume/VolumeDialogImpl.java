@@ -3271,9 +3271,6 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                             userLevel);
                 }
             }
-        if (Settings.System.getInt(mContext.getContentResolver(), Settings.System.HAPTIC_FEEDBACK_ENABLED, 1) != 0 && Settings.System.getInt(mContext.getContentResolver(), Settings.System.HAPTIC_ON_SLIDER, 1) != 0) {
-           mController.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_CLICK));
-       	 }
         }
 
         @Override
