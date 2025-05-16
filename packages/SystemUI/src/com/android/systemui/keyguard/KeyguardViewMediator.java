@@ -3101,6 +3101,12 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
     private void handleHide() {
         Trace.beginSection("KeyguardViewMediator#handleHide");
 
+        if (mAodShowing && !mLockPatternUtils.isLockScreenDisabled(
+                mSelectedUserInteractor.getSelectedUserId())) {
+            mPM.wakeUp(mSystemClock.uptimeMillis(), PowerManager.WAKE_REASON_GESTURE,
+                    "com.android.systemui:BOUNCER_DOZING");
+        }
+
         synchronized (KeyguardViewMediator.this) {
             if (DEBUG) Log.d(TAG, "handleHide");
 
