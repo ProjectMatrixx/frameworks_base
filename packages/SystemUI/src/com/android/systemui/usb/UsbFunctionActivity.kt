@@ -40,7 +40,7 @@ import android.widget.ArrayAdapter
 import android.widget.CheckedTextView
 import com.android.internal.app.AlertActivity
 import com.android.internal.app.AlertController.AlertParams
-import com.android.systemui.R
+import com.android.systemui.res.R
 import com.android.systemui.broadcast.BroadcastDispatcher
 import javax.inject.Inject
 
