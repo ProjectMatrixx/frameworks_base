@@ -68,12 +68,11 @@ public class KeyboxImitationHooks {
         return null;
     }
 
-    public static KeyMetadata generateKey(IKeystoreSecurityLevel level, KeyDescriptor descriptor, Collection<KeyParameter> args) {
+    public static KeyMetadata generateKey(IKeystoreSecurityLevel level, KeyDescriptor descriptor, KeyGenParameters params) {
         if (!KeyProviderManager.isKeyboxAvailable()) {
             return null;
         }
 
-        KeyGenParameters params = new KeyGenParameters(args.toArray(new KeyParameter[args.size()]));
         if (params.algorithm != Algorithm.EC && params.algorithm != Algorithm.RSA) {
             Log.w(TAG, "Unsupported algorithm: " + params.algorithm);
             return null;
@@ -91,7 +90,6 @@ public class KeyboxImitationHooks {
             }
             KeyboxUtils.append(uid, descriptor.alias, response);
             mFailed = false;
-            putAlgo(params.algorithm);
             return response.metadata;
         } catch (Exception e) {
             Log.e(TAG, "Failed to generate key", e);
