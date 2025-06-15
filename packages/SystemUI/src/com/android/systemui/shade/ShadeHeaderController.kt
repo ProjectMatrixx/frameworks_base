@@ -156,7 +156,8 @@ constructor(
              context.contentResolver, Settings.System.STATUS_BAR_BATTERY_STYLE, 0, UserHandle.USER_CURRENT)
     private var qsBatteryStyle = Settings.System.getIntForUser(
              context.contentResolver, Settings.System.QS_BATTERY_STYLE, -1, UserHandle.USER_CURRENT)
-    private var qsClockStyle = 0
+    private var qsClockStyle = Settings.System.getIntForUser(
+    context.contentResolver, "qs_header_clock_style", 0, UserHandle.USER_CURRENT)
 
     private lateinit var iconManager: TintedIconManager
     private lateinit var carrierIconSlots: List<String>
@@ -371,6 +372,7 @@ constructor(
             batteryIcon.setBatteryStyle(batteryStyle)
         }
         batteryIcon.setBatteryPercent(qsBatteryPercent)
+        updateQsHeaderClockDateVisibility()
     }
     
     fun updateQsHeaderClockDateVisibility() {
@@ -656,6 +658,7 @@ constructor(
         header.setPadding(padding, header.paddingTop, padding, header.paddingBottom)
         updateQQSPaddings()
         qsBatteryModeController.updateResources()
+        updateQsHeaderClockDateVisibility()
     }
 
     private fun updateQQSPaddings() {
