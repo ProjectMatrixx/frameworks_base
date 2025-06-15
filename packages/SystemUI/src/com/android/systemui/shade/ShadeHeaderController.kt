@@ -332,6 +332,7 @@ constructor(
             override fun onThemeChanged() {
                 updateIconManagerColors()
                 updateQsHeaderClockDateVisibility()
+                clock.updateClockSize()
             }
         }
 
