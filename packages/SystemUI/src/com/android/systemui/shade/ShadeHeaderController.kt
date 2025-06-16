@@ -377,7 +377,8 @@ constructor(
     }
     
     fun updateQsHeaderClockDateVisibility() {
-        val color = if (qsClockStyle != 0) Color.TRANSPARENT else Color.WHITE
+        val color = if (qsClockStyle != 0) Color.TRANSPARENT
+		else context.getColor(R.color.default_clock_color)
         val colorStateList = ColorStateList.valueOf(color)
         clock.setTextColor(colorStateList)
         date.setTextColor(colorStateList)

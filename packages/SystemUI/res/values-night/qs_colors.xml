@@ -14,4 +14,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <color name="qs_clock_text_color">#ffffffff</color>
+    <color name="default_clock_color">@android:color/system_neutral1_10</color>
 </resources>
