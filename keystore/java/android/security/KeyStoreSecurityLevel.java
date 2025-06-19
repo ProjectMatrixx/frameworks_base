@@ -34,7 +34,6 @@ import android.system.keystore2.KeyMetadata;
 import android.system.keystore2.ResponseCode;
 import android.util.Log;
 
-import com.android.internal.util.crdroid.KeyboxChainGenerator.KeyGenParameters;
 import com.android.internal.util.crdroid.KeyboxImitationHooks;
 
 import java.util.Calendar;
@@ -164,17 +163,6 @@ public class KeyStoreSecurityLevel {
         KeyboxImitationHooks.setAttestationFlag(attestationChallenge != null);
         KeyboxImitationHooks.setAttestKeyFlag(attestationKey != null);
 
-        KeyGenParameters params = new KeyGenParameters(args.toArray(new KeyParameter[args.size()]));
-        if (attestationChallenge != null && attestationKey == null) {
-            KeyMetadata metadata = KeyboxImitationHooks.generateKey(mSecurityLevel,
-                    descriptor, params);
-            if (metadata != null) {
-                return metadata;
-            } else {
-                KeyboxImitationHooks.setFailFlag(true);
-            }
-        }
-
         return handleExceptions(() -> mSecurityLevel.generateKey(
                 descriptor, attestationKey, args.toArray(new KeyParameter[args.size()]),
                 flags, entropy));
@@ -252,5 +240,9 @@ public class KeyStoreSecurityLevel {
         if (wasInterrupted) {
             Thread.currentThread().interrupt();
         }
+    }
+
+    public IKeystoreSecurityLevel getBinderInterface() {
+        return mSecurityLevel;
     }
 }
