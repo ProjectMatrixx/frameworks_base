@@ -31,7 +31,7 @@ object NewQsUI {
     const val SETTINGS_KEY = "qs_refactor_enabled"
     
     /** Default value when settings key is not set */
-    private const val DEFAULT_ENABLED = 1
+    private const val DEFAULT_ENABLED = 0
     
     /** A token used for dependency declaration */
     val token: FlagToken
