@@ -121,6 +121,9 @@
     <string-array name="device_configs_override" translatable="false">
     </string-array>
 
+   <!-- Whether to enable battery light -->
+    <bool name="config_batteryLightEnabled">false</bool>
+
     <!-- Whether to cancel fingerprint operation if not idle -->
     <bool name="config_fpCancelIfNotIdle">false</bool>
 
