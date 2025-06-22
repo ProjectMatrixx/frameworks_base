@@ -122,21 +122,23 @@ public class PixelPropsUtils {
             "com.google.android.settings.intelligence",
             "com.google.android.wallpaper.effects",
             "com.google.pixel.livewallpaper",
-            "com.google.android.apps.nexuslauncher",
-            "com.google.android.inputmethod.latin",
             "com.google.android.tts",
             "com.netflix.mediaclient"
         };
 
-        if (Arrays.asList(packagesToChangeRecentPixel ).contains(packageName) && !isExcludedProcess) {
-            if (SystemProperties.getBoolean(SPOOF_PIXEL_GOOGLE_APPS, true)) {
+        if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName) && !isExcludedProcess) {
+            if (packageName.equals("com.netflix.mediaclient")) {
+                if (SystemProperties.getBoolean(SPOOF_PIXEL_NETFLIX, false)) {
                     propsToChange.putAll(propsToChangePixel9ProXL);
-            } else if (packageName.equals("com.netflix.mediaclient") && 
-                        !SystemProperties.getBoolean(SPOOF_PIXEL_NETFLIX, false)) {
+                } else {
                     if (DEBUG) Log.d(TAG, "Netflix spoofing disabled by system prop");
-                    return;
+                    // Skip spoofing for Netflix
+                }
+            } else {
+                propsToChange.putAll(propsToChangePixel9ProXL);
             }
         }
+
 
         if (packageName.equals("com.google.android.apps.photos")) {
             if (SystemProperties.getBoolean(SPOOF_PIXEL_GPHOTOS, true)) {
