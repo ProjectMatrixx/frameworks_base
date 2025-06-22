@@ -37,7 +37,7 @@
         android:id="@+id/custom_clock">
         <Layout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/large_screen_shade_header_min_height"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/privacy_container"
             app:layout_constraintBottom_toBottomOf="@id/carrier_group"
