@@ -917,8 +917,10 @@ public class InputMethodService extends AbstractInputMethodService {
             // {@link #restartInput(InputConnection, EditorInfo)}.
             mImeDispatcher = params.imeDispatcher;
             if (mWindow != null) {
-                mWindow.getOnBackInvokedDispatcher().setImeOnBackInvokedDispatcher(
-                        params.imeDispatcher);
+                mWindow.getOnBackInvokedDispatcher().setImeOnBackInvokedDispatcher(mImeDispatcher);
+                if (mDecorViewVisible && mShowInputRequested) {
+                    registerDefaultOnBackInvokedCallback();
+                }
             }
         }
 
