@@ -7418,6 +7418,13 @@ public final class Settings {
         public static final String SCREENSHOT_SHUTTER_SOUND = "screenshot_shutter_sound";
 
         /**
+         * Whether long press on navbar gesture is enabled
+         * @hide
+         */
+        @Readable
+        public static final String NAVBAR_LONG_PRESS_GESTURE = "navbar_long_press_gesture";
+
+        /**
          * Use doubletap as doze pulse triggers
          * @hide
          */
