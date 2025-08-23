@@ -412,6 +412,11 @@ public class QuickStepContract {
         if ("com.google.android.apps.nexuslauncher".equals(callingPackage)) {
             return 0f;
         }
+
+    	if ("com.android.launcher3".equals(callingPackage)) {
+            // Matrixx Launcher crashing hack
+            return 28f;
+    }
         return ScreenDecorationsUtils.getWindowCornerRadius(context);
     }
 
