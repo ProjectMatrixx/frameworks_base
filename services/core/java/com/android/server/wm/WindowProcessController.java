@@ -91,6 +91,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.app.HeavyWeightSwitcherActivity;
 import com.android.internal.protolog.ProtoLog;
 import com.android.internal.util.function.pooled.PooledLambda;
+import com.android.server.DisplayThread;
 import com.android.server.Watchdog;
 import com.android.server.am.Flags;
 import com.android.server.am.psc.AsyncBatchSession;
@@ -567,7 +568,7 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
         // Posting on handler so WM lock isn't held when we call into AM.
         final Message m = PooledLambda.obtainMessage(
                 WindowProcessListener::setPendingUiClean, mListener, pendingUiClean);
-        mAtm.mH.sendMessage(m);
+        DisplayThread.getHandler().sendMessage(m);
     }
 
     long getInteractionEventTime() {
@@ -1458,7 +1459,7 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
 
     void clearProfilerIfNeeded() {
         // Posting on handler so WM lock isn't held when we call into AM.
-        mAtm.mH.sendMessage(PooledLambda.obtainMessage(
+        DisplayThread.getHandler().sendMessage(PooledLambda.obtainMessage(
                 WindowProcessListener::clearProfilerIfNeeded, mListener));
     }
 
@@ -1505,7 +1506,7 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
 
     void updateServiceConnectionActivities() {
         // Posting on handler so WM lock isn't held when we call into AM.
-        mAtm.mH.sendMessage(PooledLambda.obtainMessage(
+        DisplayThread.getHandler().sendMessage(PooledLambda.obtainMessage(
                 WindowProcessListener::updateServiceConnectionActivities, mListener));
     }
 
@@ -1514,7 +1515,7 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
         final Message m = PooledLambda.obtainMessage(
                 WindowProcessListener::setPendingUiCleanAndForceProcessStateUpTo,
                 mListener, newState);
-        mAtm.mH.sendMessage(m);
+        DisplayThread.getHandler().sendMessage(m);
     }
 
     boolean isRemoved() {
@@ -1583,7 +1584,7 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
         // Posting on handler so WM lock isn't held when we call into AM.
         final Message m = PooledLambda.obtainMessage(
                 WindowProcessListener::appDied, mListener, reason);
-        mAtm.mH.sendMessage(m);
+        DisplayThread.getHandler().sendMessage(m);
     }
 
     /**
@@ -2226,7 +2227,7 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
     /** Applies the animating state to activity manager for updating process priority. */
     private void setAnimating(boolean animating) {
         // Posting on handler so WM lock isn't held when we call into AM.
-        mAtm.mH.post(() -> mListener.setRunningRemoteAnimation(animating));
+        DisplayThread.getHandler().post(() -> mListener.setRunningRemoteAnimation(animating));
     }
 
     boolean isRunningRemoteTransition() {
