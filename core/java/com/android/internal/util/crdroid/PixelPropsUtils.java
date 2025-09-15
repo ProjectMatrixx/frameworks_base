@@ -49,7 +49,7 @@ public class PixelPropsUtils {
     private static final String ENABLE_GAME_PROP_OPTIONS = "persist.sys.gameprops.enabled";
     private static final String SPOOF_PIXEL_GOOGLE_APPS = "persist.sys.pixelprops.google";
 
-    private static final Map<String, Object> propsToChangePixel9ProXL;
+    private static final Map<String, Object> propsToChangePixel10ProXL;
     private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangePixel5a;
 
@@ -64,15 +64,15 @@ public class PixelPropsUtils {
     };
 
     static {
-        propsToChangePixel9ProXL = new HashMap<>();
-        propsToChangePixel9ProXL.put("BRAND", "google");
-        propsToChangePixel9ProXL.put("MANUFACTURER", "Google");
-        propsToChangePixel9ProXL.put("DEVICE", "komodo");
-        propsToChangePixel9ProXL.put("PRODUCT", "komodo");
-        propsToChangePixel9ProXL.put("HARDWARE", "komodo");
-        propsToChangePixel9ProXL.put("MODEL", "Pixel 9 Pro XL");
-        propsToChangePixel9ProXL.put("ID", "BP2A.250605.031.A2");
-        propsToChangePixel9ProXL.put("FINGERPRINT", "google/komodo/komodo:16/BP2A.250605.031.A2/13578606:user/release-keys");
+        propsToChangePixel10ProXL = new HashMap<>();
+        propsToChangePixel10ProXL.put("BRAND", "google");
+        propsToChangePixel10ProXL.put("MANUFACTURER", "Google");
+        propsToChangePixel10ProXL.put("DEVICE", "mustang");
+        propsToChangePixel10ProXL.put("PRODUCT", "mustang");
+        propsToChangePixel10ProXL.put("HARDWARE", "mustang");
+        propsToChangePixel10ProXL.put("MODEL", "Pixel 10 Pro XL");
+        propsToChangePixel10ProXL.put("ID", "BD3A.250721.001.B7");
+        propsToChangePixel10ProXL.put("FINGERPRINT", "google/mustang/mustang:16/BD3A.250721.001.B7/13955164:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
@@ -105,6 +105,7 @@ public class PixelPropsUtils {
         boolean isExcludedProcess = processName != null && (processName.toLowerCase().contains("unstable"));
 
         String[] packagesToChangeRecentPixel  = {
+            "com.android.vending",
             "com.google.android.apps.aiwallpapers",
             "com.google.android.apps.bard",
             "com.google.android.apps.customization.pixel",
@@ -129,13 +130,13 @@ public class PixelPropsUtils {
         if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName) && !isExcludedProcess) {
             if (packageName.equals("com.netflix.mediaclient")) {
                 if (SystemProperties.getBoolean(SPOOF_PIXEL_NETFLIX, false)) {
-                    propsToChange.putAll(propsToChangePixel9ProXL);
+                    propsToChange.putAll(propsToChangePixel10ProXL);
                 } else {
                     if (DEBUG) Log.d(TAG, "Netflix spoofing disabled by system prop");
                     // Skip spoofing for Netflix
                 }
             } else {
-                propsToChange.putAll(propsToChangePixel9ProXL);
+                propsToChange.putAll(propsToChangePixel10ProXL);
             }
         }
 
