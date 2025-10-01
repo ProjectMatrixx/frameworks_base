@@ -5233,6 +5233,14 @@ public final class Settings {
                 "display_color_mode_vendor_hint";
 
         /**
+         * System-wide blur intensity setting (0-200%, default 100% for system default).
+         * Controls the intensity of blur effects throughout the system UI.
+         * 0% = no blur, 100% = system default, 200% = double intensity.
+         * @hide
+         */
+        public static final String BLUR_INTENSITY = "blur_intensity";
+
+        /**
          * The user selected min refresh rate in frames per second. If infinite, the user wants
          * the highest possible refresh rate.
          *
