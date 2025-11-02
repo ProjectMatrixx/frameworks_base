@@ -101,6 +101,7 @@ import com.android.systemui.qs.flags.QsDetailedView
 import com.android.systemui.qs.panels.ui.compose.BounceableInfo
 import com.android.systemui.qs.panels.ui.compose.infinitegrid.CommonTileDefaults.ActiveTileCornerRadius
 import com.android.systemui.qs.panels.ui.compose.infinitegrid.CommonTileDefaults.InactiveCornerRadius
+import com.android.systemui.qs.tiles.impl.ringer.QSTileRingerSlider
 import com.android.systemui.qs.panels.ui.compose.infinitegrid.CommonTileDefaults.TileEndPadding
 import com.android.systemui.qs.panels.ui.compose.infinitegrid.CommonTileDefaults.TileHeight
 import com.android.systemui.qs.panels.ui.compose.infinitegrid.CommonTileDefaults.TileStartPadding
@@ -190,6 +191,11 @@ fun Tile(
             else TileDefaults.animateTileShapeAsState(uiState.state, shapeMode).value
         val animatedColor by animateColorAsState(colors.background, label = "QSTileBackgroundColor")
         val animatedAlpha by animateFloatAsState(colors.alpha, label = "QSTileAlpha")
+
+        if (tile.spec.spec == "sound" && !iconOnly) {
+            QSTileRingerSlider()
+            return@trace
+        }
 
         val outerShape = if (wantCircle) RoundedCornerShape(0.dp) else tileShape
         val outerColor: () -> Color = if (wantCircle) { { Color.Transparent } } else { { animatedColor } }
