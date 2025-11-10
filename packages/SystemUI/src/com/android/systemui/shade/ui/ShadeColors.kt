@@ -57,7 +57,7 @@ object ShadeColors {
     private fun Resources.shadePanelStandardLight(): Int {
         val layerAbove = ColorUtils.setAlphaComponent(
             getColor(R.color.shade_panel_base, null),
-            (0.65f * 255).toInt()
+            (0.55f * 255).toInt()
         )
         val layerBelow = ColorUtils.setAlphaComponent(Color.WHITE, (0.15f * 255).toInt())
         return ColorUtils.compositeColors(layerAbove, layerBelow)
@@ -66,7 +66,7 @@ object ShadeColors {
     private fun Resources.shadePanelStandardDark(): Int {
         val layerAbove = ColorUtils.setAlphaComponent(
             getColor(R.color.shade_panel_base, null),
-            (0.7f * 255).toInt()
+            (0.65f * 255).toInt()
         )
         val layerBelow = ColorUtils.setAlphaComponent(Color.WHITE, (0.13f * 255).toInt())
         return ColorUtils.compositeColors(layerAbove, layerBelow)
@@ -74,7 +74,7 @@ object ShadeColors {
 
     @JvmStatic
     private fun Resources.shadePanelFallback(): Int {
-        return ColorUtils.blendARGB(getColor(R.color.nt_scrim_behind_1), getColor(R.color.nt_scrim_behind_2), 0.3f)
+        return ColorUtils.blendARGB(getColor(R.color.nt_scrim_behind_1), getColor(R.color.nt_scrim_behind_2), 0.5f)
     }
 
     @JvmStatic
@@ -89,7 +89,7 @@ object ShadeColors {
     private fun Resources.notificationScrimStandardLight(): Int {
         val layerAbove = ColorUtils.setAlphaComponent(
             getColor(R.color.notification_scrim_base, null),
-            (0.54f * 255).toInt()
+            (0.44f * 255).toInt()
         )
         val layerBelow = ColorUtils.setAlphaComponent(Color.WHITE, (0.2f * 255).toInt())
         return ColorUtils.compositeColors(layerAbove, layerBelow)
@@ -98,7 +98,7 @@ object ShadeColors {
     private fun Resources.notificationScrimStandardDark(): Int {
         val layerAbove = ColorUtils.setAlphaComponent(
             getColor(R.color.notification_scrim_base, null),
-            (0.58f * 255).toInt()
+            (0.54f * 255).toInt()
         )
         val layerBelow = ColorUtils.setAlphaComponent(Color.WHITE, (0.21f * 255).toInt())
         return ColorUtils.compositeColors(layerAbove, layerBelow)
