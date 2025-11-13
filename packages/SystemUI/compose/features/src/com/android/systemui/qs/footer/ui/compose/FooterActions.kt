@@ -170,8 +170,7 @@ fun FooterActions(
         }
     }
 
-    val backgroundColor =
-        if (!notificationShadeBlur()) MaterialTheme.colorScheme.surfaceVariant else Color.Transparent
+    val backgroundColor = Color.Transparent
     val backgroundAlphaValue = if (!notificationShadeBlur()) backgroundAlpha::value else ({ 0f })
     val contentColor = MaterialTheme.colorScheme.onSurface
     val backgroundTopRadius = dimensionResource(R.dimen.qs_corner_radius)
@@ -414,11 +413,7 @@ private fun TextButton(
 ) {
     Expandable(
         shape = CircleShape,
-        color = if (isSystemInDarkTheme()) {
-            colorResource(id = android.R.color.system_neutral1_800)
-        } else {
-            colorResource(id = android.R.color.system_neutral1_0)
-        },
+        color = Color.Transparent,
         contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
         borderStroke = BorderStroke(0.dp, MaterialTheme.colorScheme.outlineVariant),
         modifier =
