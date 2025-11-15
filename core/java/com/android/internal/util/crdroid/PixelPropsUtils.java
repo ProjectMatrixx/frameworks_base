@@ -374,46 +374,74 @@ public final class PixelPropsUtils {
         }
     }
 
-    private static void spoofBuildGms(Context context) {
-        if (Settings.Secure.getInt(context.getContentResolver(),
-                Settings.Secure.PI_ENABLE_SPOOF, 1) != 1) {
-            if (DEBUG) Log.d(TAG, "GMS spoofing disabled by setting");
-            return;
-        }
-
-        File dataFile = new File(Environment.getDataSystemDirectory(), DATA_FILE);
-        long mtime = dataFile.exists() ? dataFile.lastModified() : -1;
-
-        if (mtime == sCertPropsMtime && sCertifiedProps != null && !sCertifiedProps.isEmpty()) {
-            if (DEBUG) Log.d(TAG, "New certification props not found, applying existing ones");
-            applyCertifiedProps();
-            return;
-        }
-
-        String savedProps = readFromFile(dataFile);
-        List<String> fresh = new ArrayList<>();
-        if (TextUtils.isEmpty(savedProps)) {
-            if (DEBUG) Log.d(TAG, "Certification props not available! Not applied.");
-            return;
-        }
-        if (DEBUG) Log.d(TAG, "Parsing props fetched by attestation service");
-        try {
-            JSONObject parsedProps = new JSONObject(savedProps);
-            Iterator<String> keys = parsedProps.keys();
-            while (keys.hasNext()) {
-                String key = keys.next();
-                String value = parsedProps.getString(key);
-                fresh.add(key + ":" + value);
+    private static List<String> loadManualPropsFromSystemProperties() {
+        List<String> list = new ArrayList<>();
+        String[] keys = new String[] {
+            "BRAND", "DEVICE", "DEVICE_INITIAL_SDK_INT", "FINGERPRINT", "ID",
+            "MANUFACTURER", "MODEL", "PRODUCT", "RELEASE", "SECURITY_PATCH",
+            "TAGS", "TYPE", "SDK_INT", "VERSION.RELEASE", "VERSION.SECURITY_PATCH",
+            "VERSION.DEVICE_INITIAL_SDK_INT", "VERSION.SDK_INT"
+        };
+        for (String k : keys) {
+            String v = SystemProperties.get("persist.sys.pihooks_" + k, "");
+            if (!v.isEmpty()) {
+                list.add(k + ":" + v);
             }
-        } catch (JSONException e) {
-            Log.e(TAG, "Error parsing JSON data", e);
-            return;
         }
-        sCertifiedProps = new ArrayList<>(fresh);
-        sCertPropsMtime = mtime;
-        if (sCertifiedProps != null && !sCertifiedProps.isEmpty()) {
-            if (DEBUG) Log.d(TAG, "New certification props found, applying new ones");
-            applyCertifiedProps();
+        return list;
+    }
+
+    private static void spoofBuildGms(Context context) {
+        int enabled = Settings.Secure.getInt(context.getContentResolver(),
+                Settings.Secure.PI_ENABLE_SPOOF, 1);
+
+        if (enabled == 1) {
+            File dataFile = new File(Environment.getDataSystemDirectory(), DATA_FILE);
+            long mtime = dataFile.exists() ? dataFile.lastModified() : -1;
+
+            if (mtime == sCertPropsMtime && sCertifiedProps != null && !sCertifiedProps.isEmpty()) {
+                if (DEBUG) Log.d(TAG, "New certification props not found, applying existing ones");
+                applyCertifiedProps();
+                return;
+            }
+
+            String savedProps = readFromFile(dataFile);
+            List<String> fresh = new ArrayList<>();
+            if (TextUtils.isEmpty(savedProps)) {
+                if (DEBUG) Log.d(TAG, "Certification props not available! Not applied.");
+                return;
+            }
+            if (DEBUG) Log.d(TAG, "Parsing props fetched by attestation service");
+            try {
+                JSONObject parsedProps = new JSONObject(savedProps);
+                Iterator<String> keys = parsedProps.keys();
+                while (keys.hasNext()) {
+                    String key = keys.next();
+                    String value = parsedProps.getString(key);
+                    fresh.add(key + ":" + value);
+                }
+            } catch (JSONException e) {
+                Log.e(TAG, "Error parsing JSON data", e);
+                return;
+            }
+            sCertifiedProps = new ArrayList<>(fresh);
+            sCertPropsMtime = mtime;
+            if (sCertifiedProps != null && !sCertifiedProps.isEmpty()) {
+                if (DEBUG) Log.d(TAG, "New certification props found, applying new ones");
+                applyCertifiedProps();
+            }
+        } else {
+            if (DEBUG) Log.d(TAG, "GMS spoofing disabled by setting - loading manual persisted props");
+            List<String> manual = loadManualPropsFromSystemProperties();
+            if (manual == null || manual.isEmpty()) {
+                if (DEBUG) Log.d(TAG, "No manual persist.sys.pihooks_* properties found");
+                return;
+            }
+            if (DEBUG) Log.d(TAG, "Applying manual imported props (" + manual.size() + ")");
+            for (String entry : manual) {
+                String[] kv = entry.split(":", 2);
+                if (kv.length == 2) setPropValue(kv[0], kv[1]);
+            }
         }
     }
 
