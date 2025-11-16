@@ -106,4 +106,9 @@
 
     <!-- Biometric view -->
     <dimen name="biometric_indicator_above_margin_bottom">8dp</dimen>
+
+    <!-- Now Playing spacing values -->
+    <dimen name="nowplaying_icon_padding_compact">8dp</dimen>
+    <dimen name="nowplaying_icon_padding_normal">16dp</dimen>
+    <dimen name="nowplaying_title_artist_gap">6dp</dimen>
 </resources>
