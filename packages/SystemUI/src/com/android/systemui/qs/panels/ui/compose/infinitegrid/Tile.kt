@@ -193,9 +193,15 @@ fun Tile(
         val animatedAlpha by animateFloatAsState(colors.alpha, label = "QSTileAlpha")
 
         if (tile.spec.spec == "sound" && !iconOnly) {
-            QSTileRingerSlider()
-            return@trace
-        }
+    	   Box(
+              Modifier
+                  .fillMaxWidth()
+                  .height(CommonTileDefaults.TileHeight)
+        ) {
+           QSTileRingerSlider()
+    	}
+    	return@trace
+      }
 
         val outerShape = if (wantCircle) RoundedCornerShape(0.dp) else tileShape
         val outerColor: () -> Color = if (wantCircle) { { Color.Transparent } } else { { animatedColor } }
