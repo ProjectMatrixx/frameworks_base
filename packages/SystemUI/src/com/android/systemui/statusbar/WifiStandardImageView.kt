@@ -55,7 +55,7 @@ class WifiStandardImageView @JvmOverloads constructor(
                     setImageResource(drawableId)
                     visibility = VISIBLE
                     layoutParams = (layoutParams as MarginLayoutParams).apply {
-                        marginEnd = resources.getDimensionPixelSize(R.dimen.status_bar_airplane_spacer_width)
+                        marginEnd = 0
                     }
                 }
             }
