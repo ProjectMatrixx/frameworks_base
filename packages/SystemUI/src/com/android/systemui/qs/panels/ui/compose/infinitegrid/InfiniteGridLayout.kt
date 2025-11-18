@@ -22,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.util.fastMap
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -92,10 +93,15 @@ constructor(
         val scope = rememberCoroutineScope()
         val spans by remember(sizedTiles) { derivedStateOf { sizedTiles.fastMap { it.width } } }
 
-        VerticalSpannedGrid(
+	val shapeMode = rememberTileShapeMode() 
+	val circlerowspacing =
+    	if (shapeMode == 4) 18.dp
+    	else dimensionResource(R.dimen.qs_tile_margin_vertical)
+
+       VerticalSpannedGrid(
             columns = columns,
             columnSpacing = dimensionResource(R.dimen.qs_tile_margin_horizontal),
-            rowSpacing = dimensionResource(R.dimen.qs_tile_margin_vertical),
+            rowSpacing = circlerowspacing,
             spans = spans,
             keys = { sizedTiles[it].tile.spec },
         ) { spanIndex, column, isFirstInColumn, isLastInColumn ->
