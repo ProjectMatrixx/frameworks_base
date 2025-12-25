@@ -7443,6 +7443,11 @@ public final class Settings {
         public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
 
         /**
+         * @hide
+         */
+        public static final String MEDIA_WAVEFORM_SEEKBAR = "media_waveform_seekbar";
+
+        /**
          * Whether to show rotation suggestion
          * @hide
          */
