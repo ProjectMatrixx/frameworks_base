@@ -1764,6 +1764,10 @@ public class Typeface {
         preloadFontFile(SystemFonts.SYSTEM_FONT_DIR + "Roboto-Regular.ttf");
         preloadFontFile(SystemFonts.SYSTEM_FONT_DIR + "RobotoStatic-Regular.ttf");
 
+        preloadFontFile(SystemFonts.SYSTEM_FONT_DIR + "GoogleSans-Regular.ttf");
+        preloadFontFile(SystemFonts.SYSTEM_FONT_DIR + "GoogleSans-Italic.ttf");
+        preloadFontFile(SystemFonts.SYSTEM_FONT_DIR + "GoogleSansFlex-Regular.ttf");
+
         String locale = SystemProperties.get("persist.sys.locale", "en-US");
         String script = ULocale.addLikelySubtags(ULocale.forLanguageTag(locale)).getScript();
 
