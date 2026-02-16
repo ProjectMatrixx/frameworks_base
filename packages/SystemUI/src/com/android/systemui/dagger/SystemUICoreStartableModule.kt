@@ -21,6 +21,7 @@ import com.android.systemui.CoreStartable
 import com.android.systemui.LatencyTester
 import com.android.systemui.SliceBroadcastRelayHandler
 import com.android.systemui.accessibility.Magnification
+import com.android.systemui.ax.AxPlatformServiceImpl
 import com.android.systemui.back.domain.interactor.BackActionInteractor
 import com.android.systemui.biometrics.BiometricNotificationService
 import com.android.systemui.bouncer.domain.startable.BouncerStartable
@@ -343,4 +344,8 @@ abstract class SystemUICoreStartableModule {
     @ClassKey(UsbModePickerDialogDelegate::class)
     abstract fun bindUsbModePickerDialogDelegate(impl: UsbModePickerDialogDelegate): CoreStartable
 
+    @Binds
+    @IntoMap
+    @ClassKey(AxPlatformServiceImpl::class)
+    abstract fun bindAxPlatformService(impl: AxPlatformServiceImpl): CoreStartable
 }
