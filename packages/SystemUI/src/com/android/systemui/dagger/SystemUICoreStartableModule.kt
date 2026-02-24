@@ -22,6 +22,8 @@ import com.android.systemui.LatencyTester
 import com.android.systemui.SliceBroadcastRelayHandler
 import com.android.systemui.accessibility.Magnification
 import com.android.systemui.ax.AxPlatformServiceImpl
+import com.android.systemui.axdynamicbar.domain.AxDynamicBarChipsRefiner
+import com.android.systemui.axdynamicbar.ui.AxDynamicBarManager
 import com.android.systemui.back.domain.interactor.BackActionInteractor
 import com.android.systemui.biometrics.BiometricNotificationService
 import com.android.systemui.bouncer.domain.startable.BouncerStartable
@@ -53,6 +55,7 @@ import com.android.systemui.mediaprojection.taskswitcher.MediaProjectionTaskSwit
 import com.android.systemui.shortcut.ShortcutKeyDispatcher
 import com.android.systemui.smartpixels.SmartPixelsReceiver
 import com.android.systemui.statusbar.ImmersiveModeConfirmation
+import com.android.systemui.statusbar.chips.ui.viewmodel.OngoingActivityChipsRefiner
 import com.android.systemui.statusbar.gesture.GesturePointerEventListener
 import com.android.systemui.statusbar.notification.InstantAppNotifier
 import com.android.systemui.statusbar.notification.headsup.StatusBarHeadsUpChangeListener
@@ -66,6 +69,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
+import dagger.multibindings.IntoSet
 
 /**
  * DEPRECATED: DO NOT ADD THINGS TO THIS FILE. b/427499553
@@ -348,4 +352,13 @@ abstract class SystemUICoreStartableModule {
     @IntoMap
     @ClassKey(AxPlatformServiceImpl::class)
     abstract fun bindAxPlatformService(impl: AxPlatformServiceImpl): CoreStartable
+
+    @Binds
+    @IntoMap
+    @ClassKey(AxDynamicBarManager::class)
+    abstract fun bindAxDynamicBarManager(impl: AxDynamicBarManager): CoreStartable
+
+    @Binds
+    @IntoSet
+    abstract fun bindDynamicBarChipsRefiner(impl: AxDynamicBarChipsRefiner): OngoingActivityChipsRefiner
 }
