@@ -50,6 +50,8 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.compose.ui.platform.ComposeView;
+
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -125,6 +127,7 @@ public class InternetDialogDelegateLegacy implements
     private AlertDialog mAlertDialog;
     private final UiEventLogger mUiEventLogger;
     private final InternetDetailsContentController mInternetDetailsContentController;
+    private final InternetTileExtrasViewModel mExtrasViewModel;
     private TextView mInternetDialogTitle;
     private TextView mInternetDialogSubTitle;
     private View mDivider;
@@ -201,6 +204,7 @@ public class InternetDialogDelegateLegacy implements
             @ShadeDisplayAware Context context,
             InternetDialogManager internetDialogManager,
             InternetDetailsContentController internetDetailsContentController,
+            InternetTileExtrasViewModel extrasViewModel,
             @Assisted(CAN_CONFIG_MOBILE_DATA) boolean canConfigMobileData,
             @Assisted(CAN_CONFIG_WIFI) boolean canConfigWifi,
             @Assisted(ABOVE_STATUS_BAR) boolean aboveStatusBar,
@@ -231,6 +235,7 @@ public class InternetDialogDelegateLegacy implements
         mBackgroundExecutor = executor;
         mInternetDialogManager = internetDialogManager;
         mInternetDetailsContentController = internetDetailsContentController;
+        mExtrasViewModel = extrasViewModel;
         mDefaultDataSubId = mInternetDetailsContentController.getDefaultDataSubscriptionId();
         mCanConfigMobileData = canConfigMobileData;
         mCanConfigWifi = canConfigWifi;
@@ -326,6 +331,9 @@ public class InternetDialogDelegateLegacy implements
                         : View.GONE);
         mWifiRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mWifiRecyclerView.setAdapter(mAdapter);
+
+        ComposeView extrasCompose = mDialogView.requireViewById(R.id.internet_extras_compose);
+        InternetDetailsContentKt.setupExtrasComposeView(mDialogView, extrasCompose, mExtrasViewModel);
 
         updateDialogUI(getWifiNetworkContent());
     }
