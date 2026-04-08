@@ -123,6 +123,6 @@
     <!-- Whitelist of package names to bypass alarm manager validation -->
     <java-symbol type="array" name="config_alarmManagerValidationBypassPackages"/>
 
-    <!-- Whitelist of package names to bypass broadcast reciever validation -->
-    <java-symbol type="array" name="config_broadcaseReceiverValidationBypassPackages"/>
+    <!-- Whitelist of package names to bypass broadcast receiver validation -->
+    <java-symbol type="array" name="config_broadcastReceiverValidationBypassPackages"/>
 </resources>
