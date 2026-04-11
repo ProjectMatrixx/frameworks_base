@@ -22,12 +22,15 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
+import android.graphics.drawable.ColorDrawable
 import android.hardware.usb.UsbManager
 import android.net.TetheringManager
+import android.os.Build
 import android.os.Handler
 import android.os.HandlerExecutor
 import android.os.UserHandle
 import android.os.UserManager
+import android.view.WindowManager
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Bolt
@@ -138,6 +141,16 @@ class UsbModePickerDialogDelegate @Inject constructor(
         )
 
         currentDialog?.show()
+
+        currentDialog?.window?.let { window ->
+            window.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND)
+                val lp = window.attributes
+                lp.blurBehindRadius = 20
+                window.attributes = lp
+            }
+        }
     }
 
     @Composable
