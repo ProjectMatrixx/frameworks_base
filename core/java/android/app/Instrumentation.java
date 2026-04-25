@@ -81,7 +81,6 @@ import java.util.StringJoiner;
 import java.util.concurrent.TimeoutException;
 
 import com.android.internal.util.matrixx.PixelPropsUtils;
-import com.android.internal.util.matrixx.PerAppsPropsUtils;
 
 /**
  * Base class for implementing application instrumentation code.  When running
@@ -1363,7 +1362,6 @@ public class Instrumentation {
                 .instantiateApplication(cl, className);
         app.attach(context);
         PixelPropsUtils.setProps(context);
-        PerAppsPropsUtils.setProps(context);
         return app;
     }
     
@@ -1383,7 +1381,6 @@ public class Instrumentation {
         Application app = (Application)clazz.newInstance();
         app.attach(context);
         PixelPropsUtils.setProps(context);
-        PerAppsPropsUtils.setProps(context);
         return app;
     }
 
