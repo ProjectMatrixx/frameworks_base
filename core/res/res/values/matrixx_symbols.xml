@@ -112,4 +112,7 @@
 
     <!-- Whitelist of package names to bypass broadcast receiver validation -->
     <java-symbol type="array" name="config_broadcastReceiverValidationBypassPackages"/>
+
+    <!-- GameSpace -->
+    <java-symbol type="string" name="gamespace_new_game_added" />
 </resources>
