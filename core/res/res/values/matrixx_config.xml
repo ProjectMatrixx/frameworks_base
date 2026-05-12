@@ -96,9 +96,6 @@
     <bool name="config_dozePulseProximity">false</bool>
     <bool name="config_deviceHaveWakeUpProximity">false</bool>
 
-    <!-- Whether the device supports Smart Pixels -->
-    <bool name="config_supportSmartPixels">false</bool>
-
     <!-- Whether to cancel fingerprint operation if not idle -->
     <bool name="config_fpCancelIfNotIdle">false</bool>
 
