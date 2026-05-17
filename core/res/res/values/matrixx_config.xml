@@ -103,4 +103,17 @@
 
     <!-- Component name of the activity that allows choosing the usb function when a usb device is plugged in. -->
     <string name="config_usbFunctionActivity" translatable="false">com.android.systemui/com.android.systemui.usb.UsbFunctionActivity</string>
+    
+    <!-- Vibrator pattern for feedback meant to replicate soft ticks (feels like texture underneath
+         the user's fingers), in gestures called repeatedly (such as dragging a slider thumb).
+
+         This is supposed to be used as a fallback pattern when hardware-specific implementation of
+         the effect does not exist, but it will still take over if the timings array is not empty.
+    -->
+    <integer-array name="config_textureTickVibePattern">
+        <!--
+        <item>0</item>
+        <item>10</item>
+        -->
+    </integer-array>
 </resources>
