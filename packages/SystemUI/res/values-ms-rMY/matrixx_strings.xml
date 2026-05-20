@@ -6,57 +6,57 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Statusbar Icons -->
     <string name="status_bar_nfc">NFC</string>
-    <string name="status_bar_data_saver">Data saver</string>
-    <string name="status_bar_call_strength">Call strength</string>
+    <string name="status_bar_data_saver">Penjimat data</string>
+    <string name="status_bar_call_strength">Kekuatan panggilan</string>
     <!-- Notification counter -->
     <!-- Name of the roaming status bar icon. -->
-    <string name="status_bar_roaming">Roaming indicator</string>
+    <string name="status_bar_roaming">Perantauan penunjuk</string>
     <!-- Name of the HD calling status bar icon. -->
-    <string name="status_bar_hd_calling">HD calling (VoLTE/VoNR)</string>
+    <string name="status_bar_hd_calling">Panggilan HD (VoLTE/VoNR)</string>
     <!-- Name of the VoWiFi status bar icon. -->
-    <string name="status_bar_vowifi">Wi-Fi calling (VoWiFi)</string>
+    <string name="status_bar_vowifi">Panggilan Wi-Fi (VoWiFi)</string>
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Data disabled icon</string>
     <!-- Disable stacked mobile icons -->
-    <string name="disable_stacked_mobile_icons_title">Disable combined data icon</string>
+    <string name="disable_stacked_mobile_icons_title">Lumpuhkan ikon data gabungan</string>
     <!-- 4G icon instead LTE -->
-    <string name="fourg_icon_title">4G icon</string>
+    <string name="fourg_icon_title">4G ikon</string>
     <!-- Weather -->
-    <string name="weather_condition_clouds">Cloudy</string>
-    <string name="weather_condition_rain">Rainy</string>
-    <string name="weather_condition_clear">Clear Sky</string>
-    <string name="weather_condition_storm">Stormy</string>
-    <string name="weather_condition_snow">Snowy</string>
-    <string name="weather_condition_wind">Windy</string>
+    <string name="weather_condition_clouds">Berawan</string>
+    <string name="weather_condition_rain">Hujan</string>
+    <string name="weather_condition_clear">Langit Cerah</string>
+    <string name="weather_condition_storm">Ribut</string>
+    <string name="weather_condition_snow">Bersalji</string>
+    <string name="weather_condition_wind">Berangin</string>
     <string name="weather_condition_mist">Misty</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash Charging</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengecasan Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> sehingga penuh)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Pengecasan Dash</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Warp Charging</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengecasan Warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> sehingga penuh)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Pengecasan Warp</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC Charging</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengecasan VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> sehingga penuh)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Pengecasan VOOC</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo Charging</string>
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengecasan Turbo (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> sehingga penuh)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Pengecasan Turbo</string>
     <!-- Smartspace -->
-    <string name="accessibility_next_alarm">Next alarm at %s</string>
-    <string name="accessibility_smartspace_page">Page %1$d of %2$d</string>
-    <string name="active_mode_content_description">%1$s is on</string>
-    <string name="music_controls_no_title">No title</string>
+    <string name="accessibility_next_alarm">Penggera seterusnya pada pukul %s</string>
+    <string name="accessibility_smartspace_page">Halaman %1$d daripada %2$d</string>
+    <string name="active_mode_content_description">%1$s sudah dihidupkan</string>
+    <string name="music_controls_no_title">Tiada tajuk</string>
     <string name="smartspace_content_desc">At a glance</string>
-    <string name="smartspace_flight_qr_code">QR code</string>
-    <string name="smartspace_role_desc">View</string>
+    <string name="smartspace_flight_qr_code">Kod QR</string>
+    <string name="smartspace_role_desc">Paparkan</string>
     <!-- Button to restart SystemUI, within the Restart Options dialog -->
     <string name="global_action_restart_systemui">SystemUI</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">On-The-Go activated</string>
-    <string name="onthego_notif_title">On-The-Go is active</string>
-    <string name="onthego_notif_stop">Stop</string>
-    <string name="onthego_notif_options">Options</string>
-    <string name="onthego_notif_error">Unable to start On-The-Go</string>
+    <string name="onthego_notif_ticker">On-The-Go diaktifkan</string>
+    <string name="onthego_notif_title">On-The-Go sedang aktif</string>
+    <string name="onthego_notif_stop">Berhenti</string>
+    <string name="onthego_notif_options">Tetapan</string>
+    <string name="onthego_notif_error">Tidak dapat memulakan On-The-Go</string>
     <string name="onthego_notif_restart">Restart On-The-Go</string>
     <string name="onthego_notif_camera_changed">Camera mode changed</string>
     <string name="onthego_transparency">Transparency</string>
