@@ -31,6 +31,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ParceledListSlice;
 import android.content.pm.UserInfo;
+import android.content.om.IOverlayManager;
+import android.os.UserHandle;
 import android.os.Handler;
 import android.os.IUserManager;
 import android.os.RemoteException;
@@ -48,6 +50,7 @@ public final class QuickSwitchService extends SystemService {
 
     private static final String TAG = "QuickSwitchService";
     private static final int THREAD_PRIORITY_DEFAULT = android.os.Process.THREAD_PRIORITY_DEFAULT;
+    private static final String WALLPAPER_OVERLAY = "com.android.system.qs.wallpaperoverlay";
 
     private final Context mContext;
     private final IPackageManager mPM;
@@ -139,6 +142,26 @@ public final class QuickSwitchService extends SystemService {
         return disabledLaunchersCache;
     }
 
+    private void updateWallpaperOverlay() {
+    int defaultLauncher =
+            SystemProperties.getInt(
+                    "persist.sys.default_launcher", 0);
+
+    try {
+        IOverlayManager overlayManager =
+                IOverlayManager.Stub.asInterface(
+                        ServiceManager.getService(
+                                Context.OVERLAY_SERVICE));
+
+        if (overlayManager != null) {
+            overlayManager.setEnabled(
+                    WALLPAPER_OVERLAY,
+                    defaultLauncher == 0,
+                    UserHandle.USER_CURRENT);
+        }
+    } catch (Exception ignored) {}
+}
+
     private void initForUser(int userId) {
         if (userId < 0)
             return;
@@ -150,6 +173,7 @@ public final class QuickSwitchService extends SystemService {
             for (UserInfo user : mUM.getUsers(false)) {
                 initForUser(user.id);
             }
+             updateWallpaperOverlay();
         } catch (RemoteException e) {
             e.rethrowAsRuntimeException();
         }
