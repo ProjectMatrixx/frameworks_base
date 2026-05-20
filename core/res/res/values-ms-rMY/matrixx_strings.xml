@@ -5,35 +5,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Settings Restart -->
-    <string name="settings_restart_title">Settings restart required</string>
-    <string name="settings_restart_message">For all changes to take effect, a Settings app restart is required. Restart Settings app now?</string>
+    <string name="settings_restart_title">Mulakan semula tetapan diperlukan</string>
+    <string name="settings_restart_message">Untuk semua perubahan yang anda telah buat, mulakan semula Tetapan diperlukan. Mulakan semula tetapan sekarang?</string>
     <!-- System Reboot -->
-    <string name="system_restart_title">System restart required</string>
-    <string name="system_restart_message">For all the changes to take effect, a system restart is required. Perform system restart now?</string>
+    <string name="system_restart_title">Mulakan semula tetapan diperlukan</string>
+    <string name="system_restart_message">Untuk semua perubahan yang anda telah buat, mulakan semula sistem diperlukan. Mulakan semula sistem sekarang?</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">SystemUI restart required</string>
-    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+    <string name="systemui_restart_title">Mula semula SystemUI diperlukan</string>
+    <string name="systemui_restart_message">Untuk semua perubahan yang anda telah buat, mulakan semula SystemUI diperlukan. Mulakan semula SystemUI sekarang?</string>
     <!-- Launcher Restart -->
-    <string name="launcher_restart_title">Launcher restart required</string>
-    <string name="launcher_restart_message">For all changes to take effect, a Launcher restart is required. Restart Launcher now?</string>
+    <string name="launcher_restart_title">Mulakan semula Launcher diperlukan</string>
+    <string name="launcher_restart_message">Untuk semua perubahan yang anda telah buat, mulakan semula Launcher diperlukan. Mulakan semula Launcher sekarang?</string>
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to Pasty</string>
+    <string name="aerr_copy">Salin crash log URL</string>
+    <string name="url_copy_success">URL berjaya disalin</string>
+    <string name="url_copy_failed">Ralat berlaku semasa memuat naik log ke Pasty</string>
     <!-- Pocket Lock -->
-    <string name="pocket_mode_title">Pocket mode is active</string>
-    <string name="pocket_mode_illustration_description">Illustration of phone in pocket</string>
-    <string name="pocket_mode_instructions_header">To use your phone:</string>
-    <string name="pocket_mode_instruction_step1">1. Ensure the blue area (proximity sensor) shown above is unobstructed and free from dirt or dust.</string>
-    <string name="pocket_mode_instruction_step2">2. Press and hold the power button to exit pocket mode.</string>
+    <string name="pocket_mode_title">Mod poket sedang aktif</string>
+    <string name="pocket_mode_illustration_description">Ilustrasi telefon di dalam poket</string>
+    <string name="pocket_mode_instructions_header">Untuk menggunakan telefon:</string>
+    <string name="pocket_mode_instruction_step1">1. Pastikan kawasan biru (proximity sensor) yang ditunjuk di atas tidak halang dan bebas dari tanah atau habuk.</string>
+    <string name="pocket_mode_instruction_step2">2. Tekan dan tahan butang kuasa untuk keluar dari mod poket.</string>
     <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+    <string name="volume_dialog_ringer_guidance_normal">Panggilan dan pemberitahuan akan berdering</string>
     <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Sleep Mode</string>
-    <string name="sleep_mode_notification_title">Sleep mode enabled</string>
-    <string name="sleep_mode_notification_content">Tap to turn off sleep mode</string>
-    <string name="sleep_mode_enabled_toast">Sleep mode turned on</string>
-    <string name="sleep_mode_disabled_toast">Sleep mode turned off</string>
+    <string name="notification_channel_sleep">Mod tidur</string>
+    <string name="sleep_mode_notification_title">Mod tidur sedang aktif</string>
+    <string name="sleep_mode_notification_content">Sentuh untuk mematikan mod tidur</string>
+    <string name="sleep_mode_enabled_toast">Mod tidur dihidupkan</string>
+    <string name="sleep_mode_disabled_toast">Mod Tidur dipadamkan</string>
     <!-- GameSpace -->
-    <string name="gamespace_new_game_added"><xliff:g id="name" example="MyApp">%s</xliff:g> added to GameSpace</string>
+    <string name="gamespace_new_game_added"><xliff:g id="name" example="MyApp">%s</xliff:g> telah ditambah ke GameSpace</string>
 </resources>
