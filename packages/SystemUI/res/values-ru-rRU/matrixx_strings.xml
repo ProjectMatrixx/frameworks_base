@@ -30,20 +30,20 @@
     <string name="weather_condition_wind">Ветрено</string>
     <string name="weather_condition_mist">Туман</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Турбо Зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Быстрая зарядка</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Турбо Зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Очень быстрая зарядка</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до конца)</string>
     <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC зарядка</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Турбо Зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Турбо Зарядка</string>
     <!-- Smartspace -->
     <string name="accessibility_next_alarm">Следующий будильник сработает в %s</string>
-    <string name="accessibility_smartspace_page">Страница %1$d. Всего: %2$d.</string>
+    <string name="accessibility_smartspace_page">Страница %1$d. Всего: %2$d</string>
     <string name="active_mode_content_description">%1$s Включен</string>
     <string name="music_controls_no_title">Без названия</string>
     <string name="smartspace_content_desc">Самое главное</string>
@@ -81,7 +81,7 @@
     <string name="tristate_rotation_270">Альбомная ориентация (270°)</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">использовано</string>
-    <string name="usage_data_weekly">Использование за неделю</string>
+    <string name="usage_data_weekly">использовалось на этой неделе</string>
     <string name="usage_data_default_suffix">Данные</string>
     <string name="usage_wifi_default_suffix">Вай-фай</string>
     <!-- Kill button in notification guts -->
@@ -99,7 +99,7 @@
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Отображать количество FPS</string>
     <!-- FPS view text placeholder -->
-    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <string name="fps_text_placeholder">Частота кадров в секунду: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">Компас</string>
     <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
@@ -141,7 +141,7 @@
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
     <string name="screenrecord_delete_label">Удалить</string>
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
-    <string name="screenrecord_delete_description">Screen recording deleted</string>
+    <string name="screenrecord_delete_description">Запись экрана удалена</string>
     <!-- Volume QS Tile -->
     <string name="quick_settings_volume_label">Громкость</string>
     <string name="qs_volume_dialog_title">Управление громкостью</string>
@@ -159,7 +159,7 @@
     <string name="usb_charging_status">Зарядка через USB включена</string>
     <!-- USB function dialog - copied from Settings -->
     <string name="usb_use_charging_only">Без передачи данных</string>
-    <string name="usb_use_file_transfers">Передача файлов по USB</string>
+    <string name="usb_use_file_transfers">Передача файлов</string>
     <string name="usb_use_photo_transfers">Режим PTP</string>
     <string name="usb_use_uvc_webcam">Веб-камера</string>
     <string name="usb_use_tethering">USB-модем</string>
@@ -201,7 +201,7 @@
     <string name="ax_dynamic_bar_copy_image">Скопировать изображение</string>
     <string name="ax_dynamic_bar_clipboard_image_desc">Открыть изображение из буфера обмена</string>
     <string name="ax_dynamic_bar_image">Изображение</string>
-    <string name="ax_dynamic_bar_url">URL</string>
+    <string name="ax_dynamic_bar_url">Ссылка</string>
     <string name="ax_dynamic_bar_dismiss">Отменить</string>
     <string name="ax_dynamic_bar_open">Открыть</string>
     <string name="ax_dynamic_bar_stop">Остановить</string>
@@ -230,14 +230,14 @@
     <string name="ax_dynamic_bar_camera_mic_short">Камера &amp; микрофон</string>
     <string name="ax_dynamic_bar_hotspot_devices"><xliff:g id="count" example="3">%d</xliff:g> Устройства</string>
     <string name="ax_dynamic_bar_wireless_charging">Беспроводная зарядка</string>
-    <string name="ax_dynamic_bar_until_full">До полного</string>
+    <string name="ax_dynamic_bar_until_full">До полного заполнения</string>
     <string name="ax_dynamic_bar_battery_saver">Режим энергосбережения</string>
     <string name="ax_dynamic_bar_incoming_call">Входящий вызов</string>
     <string name="ax_dynamic_bar_connected">Подключено</string>
     <string name="ax_dynamic_bar_disconnect">Отключено</string>
     <string name="ax_dynamic_bar_no_devices">Нет устройств</string>
     <string name="ax_dynamic_bar_one_device_connected">1 устройство подключено</string>
-    <string name="ax_dynamic_bar_devices_connected"><xliff:g id="count" example="3">%d</xliff:g> devices connected</string>
+    <string name="ax_dynamic_bar_devices_connected">Подключено устройств: <xliff:g id="count" example="3">%d</xliff:g></string>
     <string name="ax_dynamic_bar_vpn_connected">VPN подключен</string>
     <string name="ax_dynamic_bar_secured">Защищено</string>
     <string name="ax_dynamic_bar_connecting">Подключение\u2026</string>
@@ -245,18 +245,18 @@
     <string name="ax_dynamic_bar_bluetooth_device">Устройства Bluetooth</string>
     <string name="ax_dynamic_bar_apps_count"><xliff:g id="count" example="2">%d</xliff:g> Приложения</string>
     <string name="ax_dynamic_bar_just_now">Прямо сейчас</string>
-    <string name="ax_dynamic_bar_mins_ago"><xliff:g id="count" example="5">%d</xliff:g>Мин. назад</string>
+    <string name="ax_dynamic_bar_mins_ago"><xliff:g id="count" example="5">%d</xliff:g>Мин. Назад</string>
     <string name="ax_dynamic_bar_hours_ago"><xliff:g id="count" example="2">%d</xliff:g>Ч. назад</string>
     <string name="ax_dynamic_bar_days_ago"><xliff:g id="count" example="3">%d</xliff:g>Дней назад</string>
     <string name="ax_dynamic_bar_weeks_ago"><xliff:g id="count" example="1">%d</xliff:g>Недель назад</string>
     <string name="ax_dynamic_bar_resume">Возобновить</string>
     <string name="ax_dynamic_bar_clipboard">Буфер обмена</string>
     <string name="ax_dynamic_bar_previous">Предыдущий</string>
-    <string name="ax_dynamic_bar_next">Next</string>
+    <string name="ax_dynamic_bar_next">Далее</string>
     <string name="ax_dynamic_bar_shuffle">Перемешать</string>
     <string name="ax_dynamic_bar_output">Вывод</string>
     <string name="ax_dynamic_bar_rec_short">Запись</string>
-    <string name="ax_dynamic_bar_cast_short">Транслировать.</string>
+    <string name="ax_dynamic_bar_cast_short">Транслировать</string>
     <string name="ax_dynamic_bar_active">Активно</string>
     <string name="ax_dynamic_bar_biometric">Биометрия</string>
     <string name="ax_dynamic_bar_trust">Доверять</string>
@@ -264,7 +264,7 @@
     <string name="ax_dynamic_bar_cam_short">Камера</string>
     <string name="ax_dynamic_bar_mic_short">Микрофон</string>
     <string name="ax_dynamic_bar_recent_apps">Меню недавних приложений</string>
-    <string name="ax_dynamic_bar_count_running"><xliff:g id="count" example="3">%d</xliff:g> Запущено</string>
+    <string name="ax_dynamic_bar_count_running">Запущено: <xliff:g id="count" example="3">%d</xliff:g></string>
     <string name="ax_dynamic_bar_sports_vs">или</string>
     <string name="ax_dynamic_bar_sports_live">В ЭФИРЕ</string>
     <string name="ax_dynamic_bar_sports_final">Финал</string>
