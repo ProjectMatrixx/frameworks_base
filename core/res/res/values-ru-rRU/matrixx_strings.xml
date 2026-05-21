@@ -5,35 +5,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Settings Restart -->
-    <string name="settings_restart_title">Settings restart required</string>
-    <string name="settings_restart_message">For all changes to take effect, a Settings app restart is required. Restart Settings app now?</string>
+    <string name="settings_restart_title">Необходима перезагрузка системного интерфейса</string>
+    <string name="settings_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка системного интерфейса. Перезагрузить сейчас?</string>
     <!-- System Reboot -->
-    <string name="system_restart_title">System restart required</string>
-    <string name="system_restart_message">For all the changes to take effect, a system restart is required. Perform system restart now?</string>
+    <string name="system_restart_title">Требуется перезагрузка</string>
+    <string name="system_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка системного интерфейса. Перезагрузить сейчас?</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">SystemUI restart required</string>
-    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+    <string name="systemui_restart_title">Необходима перезагрузка интерфейса</string>
+    <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка пользовательского интерфейса. Перезагрузить интерфейс?</string>
     <!-- Launcher Restart -->
-    <string name="launcher_restart_title">Launcher restart required</string>
-    <string name="launcher_restart_message">For all changes to take effect, a Launcher restart is required. Restart Launcher now?</string>
+    <string name="launcher_restart_title">Требуется перезапуск лаунчера</string>
+    <string name="launcher_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка лаунчера. Перезапустить лаунчер сейчас?</string>
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to Pasty</string>
+    <string name="aerr_copy">Скопировать URL журнала ошибки</string>
+    <string name="url_copy_success">URL успешно скопирован</string>
+    <string name="url_copy_failed">Произошла ошибка во время загрузки лога на Pasty</string>
     <!-- Pocket Lock -->
-    <string name="pocket_mode_title">Pocket mode is active</string>
-    <string name="pocket_mode_illustration_description">Illustration of phone in pocket</string>
-    <string name="pocket_mode_instructions_header">To use your phone:</string>
-    <string name="pocket_mode_instruction_step1">1. Ensure the blue area (proximity sensor) shown above is unobstructed and free from dirt or dust.</string>
-    <string name="pocket_mode_instruction_step2">2. Press and hold the power button to exit pocket mode.</string>
+    <string name="pocket_mode_title">Режим «В кармане» включен</string>
+    <string name="pocket_mode_illustration_description">Иллюстрация телефона в кармане</string>
+    <string name="pocket_mode_instructions_header">Чтобы использовать телефон:</string>
+    <string name="pocket_mode_instruction_step1">1. Убедитесь, что синяя область (датчик приближения), показанная выше, не закрыт и не содержит грязи или пыли.</string>
+    <string name="pocket_mode_instruction_step2">2. Нажмите и удерживайте кнопку питания, чтобы выйти из режима «В кармане».</string>
     <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+    <string name="volume_dialog_ringer_guidance_normal">Звук в звонках и уведомлениях включён</string>
     <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Sleep Mode</string>
-    <string name="sleep_mode_notification_title">Sleep mode enabled</string>
-    <string name="sleep_mode_notification_content">Tap to turn off sleep mode</string>
-    <string name="sleep_mode_enabled_toast">Sleep mode turned on</string>
-    <string name="sleep_mode_disabled_toast">Sleep mode turned off</string>
+    <string name="notification_channel_sleep">Спящий режим</string>
+    <string name="sleep_mode_notification_title">Спящий режим включен</string>
+    <string name="sleep_mode_notification_content">Нажмите, чтобы выключить спящий режим</string>
+    <string name="sleep_mode_enabled_toast">Спящий режим включен</string>
+    <string name="sleep_mode_disabled_toast">Спящий режим выключен</string>
     <!-- GameSpace -->
     <string name="gamespace_new_game_added"><xliff:g id="name" example="MyApp">%s</xliff:g> Добавлено в GameSpace</string>
 </resources>
