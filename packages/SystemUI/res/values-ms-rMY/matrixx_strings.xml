@@ -60,9 +60,9 @@
     <string name="onthego_notif_restart">Mulakan semula On-The-Go</string>
     <string name="onthego_notif_camera_changed">Mod kamera berubah</string>
     <string name="onthego_transparency">Ketelusan</string>
-    <string name="onthego_front_camera">Use front camera</string>
-    <string name="onthego_service_toggle">Automatically restart service</string>
-    <string name="onthego_channel_name">Main</string>
+    <string name="onthego_front_camera">Guna kamera depan</string>
+    <string name="onthego_service_toggle">Mulakan semula servis secara automatik</string>
+    <string name="onthego_channel_name">Utama</string>
     <string name="global_action_onthego">On-The-Go</string>
     <!-- Alert slide extras -->
     <string name="volume_ringer_priority_only">Priority</string>
