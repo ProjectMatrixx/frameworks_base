@@ -35,6 +35,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Insets;
 import android.graphics.Rect;
@@ -44,6 +45,7 @@ import android.util.IndentingPrintWriter;
 import android.util.Log;
 import android.util.MathUtils;
 import android.view.Display;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.VelocityTracker;
@@ -209,6 +211,12 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
     private int mDisplayRightInset = 0; // in pixels
     private int mDisplayLeftInset = 0; // in pixels
     private boolean mSplitShadeEnabled;
+    private GestureDetector mHorizontalSwipeDetector;
+
+    private static final float SWIPE_THRESHOLD = 100f;
+    private static final float SWIPE_VELOCITY_THRESHOLD = 500f;
+    private static final long SWIPE_FADE_DURATION_MS = 200L;
+
     /**
      * The padding between the start of notifications and the qs boundary on the lockscreen.
      * On lockscreen, notifications aren't inset this extra amount, but we still want the
@@ -313,6 +321,7 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
     private int mOneFingerQuickSettingsIntercept;
     private boolean mQsSplitShadeEnabledLegacy;
     private boolean mSwipeInProgress = false;
+    private boolean mHorizontalSwipeConsuming = false;
 
     private final Region mInterceptRegion = new Region();
     /** The end bounds of a clipping animation. */
@@ -501,6 +510,7 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
     // TODO (b/265054088): move this and others to a CoreStartable
     void init() {
         initNotificationStackScrollLayoutController();
+        initializeHorizontalSwipeDetector(mPanelView.getContext());
         mJavaAdapter.alwaysCollectFlow(
                 mShadeInteractor.isExpandToQsEnabled(), this::setExpansionEnabledPolicy);
         mJavaAdapter.alwaysCollectFlow(
@@ -1788,22 +1798,166 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
         return mConflictingExpansionGesture;
     }
 
+    private void initializeHorizontalSwipeDetector(Context context) {
+        mHorizontalSwipeDetector = new GestureDetector(context,
+                new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2,
+                    float velocityX, float velocityY) {
+                return handleHorizontalSwipe(e1, e2, velocityX, velocityY);
+            }
+
+            @Override
+            public boolean onScroll(MotionEvent e1, MotionEvent e2,
+                    float distanceX, float distanceY) {
+                if (!mHorizontalSwipeConsuming) {
+                    float dx = Math.abs(e2.getX() - e1.getX());
+                    float dy = Math.abs(e2.getY() - e1.getY());
+                    if (dx > dy && dx > mTouchSlop) {
+                        mHorizontalSwipeConsuming = true;
+                    }
+                }
+                return mHorizontalSwipeConsuming;
+            }
+        });
+    }
+
+    private boolean handleHorizontalSwipe(MotionEvent e1, MotionEvent e2,
+            float velocityX, float velocityY) {
+        if (!mQsSplitShadeEnabledLegacy || mBarState != StatusBarState.SHADE) {
+            return false;
+        }
+
+        float deltaX = e2.getX() - e1.getX();
+        float absDeltaX = Math.abs(deltaX);
+        float absDeltaY = Math.abs(e2.getY() - e1.getY());
+
+        if (absDeltaX <= absDeltaY) {
+            return false;
+        }
+
+        if (Math.abs(velocityX) < SWIPE_VELOCITY_THRESHOLD) {
+            return false;
+        }
+
+        if (deltaX > SWIPE_THRESHOLD) {
+            navigateToNotifications();
+            return true;
+        }
+
+        if (deltaX < -SWIPE_THRESHOLD) {
+            navigateToQs();
+            return true;
+        }
+
+        return false;
+    }
+
+    private void navigateToNotifications() {
+        if (mShadeLog != null) {
+            mShadeLog.d("Horizontal swipe: navigating to notifications");
+        }
+        animateSplitShadeTransition(false /* toQs */);
+    }
+
+    private void navigateToQs() {
+        if (mShadeLog != null) {
+            mShadeLog.d("Horizontal swipe: navigating to QS");
+        }
+        animateSplitShadeTransition(true /* toQs */);
+    }
+
+    private void animateSplitShadeTransition(boolean toQs) {
+        final android.view.View qsView =
+                (mQs != null && mQs.getView() != null) ? mQs.getView() : null;
+        final android.view.View nsslView =
+                (mNotificationStackScrollLayoutController.getView() != null)
+                        ? mNotificationStackScrollLayoutController.getView() : null;
+
+        if (qsView == null || nsslView == null) {
+            setExpandImmediate(toQs);
+            if (!toQs) setTracking(false);
+            updateQsState();
+            flingQs(0, toQs ? FLING_EXPAND : FLING_COLLAPSE);
+            return;
+        }
+
+        final android.view.View outView = toQs ? nsslView : qsView;
+        final android.view.View inView  = toQs ? qsView  : nsslView;
+
+        outView.setAlpha(1f);
+        inView.setAlpha(0f);
+        inView.setVisibility(android.view.View.VISIBLE);
+
+        if (toQs) {
+            setExpandImmediate(true);
+            updateQsState();
+        }
+
+        ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
+        animator.setDuration(SWIPE_FADE_DURATION_MS);
+        animator.setInterpolator(Interpolators.FAST_OUT_SLOW_IN);
+        animator.addUpdateListener(anim -> {
+            float f = (float) anim.getAnimatedValue();
+            outView.setAlpha(1f - f);
+            inView.setAlpha(f);
+        });
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                outView.setAlpha(1f);
+                inView.setAlpha(1f);
+                if (toQs) {
+                    flingQs(0, FLING_EXPAND);
+                } else {
+                    setExpandImmediate(false);
+                    setTracking(false);
+                    updateQsState();
+                    flingQs(0, FLING_COLLAPSE);
+                }
+            }
+        });
+        animator.start();
+    }
+
     /** handles touches in Qs panel area */
     boolean handleTouch(MotionEvent event, boolean isFullyCollapsed,
             boolean isShadeOrQsHeightAnimationRunning) {
-        if (mQsSplitShadeEnabledLegacy && mBarState == StatusBarState.SHADE) {
-            if (!isFullyCollapsed) {
+        boolean isLegacySplitMode = mQsSplitShadeEnabledLegacy
+                && mBarState == StatusBarState.SHADE;
+
+        if (isLegacySplitMode) {
+            final int action = event.getActionMasked();
+
+            if (action == MotionEvent.ACTION_DOWN) {
+                mHorizontalSwipeConsuming = false;
+            }
+
+            if (mHorizontalSwipeDetector != null) {
+                mHorizontalSwipeDetector.onTouchEvent(event);
+            }
+
+            if (mHorizontalSwipeConsuming) {
+                if (action == MotionEvent.ACTION_UP
+                        || action == MotionEvent.ACTION_CANCEL) {
+                    mHorizontalSwipeConsuming = false;
+                }
+                return true;
+            }
+            if (!isFullyCollapsed && !getExpanded() && !isExpandImmediate()) {
                 return false;
             }
-        }
-        boolean isSwipeDisabled = NTForbiddenSwipeDownQSController.get(mPanelView.getContext()).getForbiddenSwipeDownQS();
-        if (isSplitShadeAndTouchXOutsideQs(event.getX())) {
+        } else if (isSplitShadeAndTouchXOutsideQs(event.getX())) {
             mShadeLog.logMotionEvent(event, "handleQsTouch: touch outside QS");
             return false;
         }
         float statusBarThreshold = mQsSplitShadeEnabledLegacy && mBarState == StatusBarState.SHADE
                 ? mStatusBarMinHeight * 2.0f : mStatusBarMinHeight;
         boolean isInStatusBar = event.getY(event.getActionIndex()) < statusBarThreshold;
+
+        boolean isSwipeDisabled = NTForbiddenSwipeDownQSController
+                .get(mPanelView.getContext()).getForbiddenSwipeDownQS();
+
         if (ShadeExpandsOnStatusBarLongPress.isEnabled() && isInStatusBar 
                 && !isSwipeDisabled) {
             mStatusBarLongPressGestureDetector.get().handleTouch(event);
@@ -1828,7 +1982,7 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
             mInitialTouchY = event.getY();
             mInitialTouchX = event.getX();
         }
-        if (!isFullyCollapsed && !isShadeOrQsHeightAnimationRunning) {
+        if (!isFullyCollapsed && !isShadeOrQsHeightAnimationRunning && !isLegacySplitMode) {
             handleDown(event);
         }
         // defer touches on QQS to shade while shade is collapsing. Added margin for error
