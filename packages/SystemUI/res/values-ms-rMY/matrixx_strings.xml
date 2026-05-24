@@ -16,7 +16,7 @@
     <!-- Name of the VoWiFi status bar icon. -->
     <string name="status_bar_vowifi">Panggilan Wi-Fi (VoWiFi)</string>
     <!-- Data disabled icon -->
-    <string name="data_disabled_icon_title">Data disabled icon</string>
+    <string name="data_disabled_icon_title">Ikon data dilumpuhkan</string>
     <!-- Disable stacked mobile icons -->
     <string name="disable_stacked_mobile_icons_title">Lumpuhkan ikon data gabungan</string>
     <!-- 4G icon instead LTE -->
@@ -28,7 +28,7 @@
     <string name="weather_condition_storm">Ribut</string>
     <string name="weather_condition_snow">Bersalji</string>
     <string name="weather_condition_wind">Berangin</string>
-    <string name="weather_condition_mist">Misty</string>
+    <string name="weather_condition_mist">Berkabus</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengecasan Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> sehingga penuh)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Pengecasan Dash</string>
@@ -57,12 +57,12 @@
     <string name="onthego_notif_stop">Berhenti</string>
     <string name="onthego_notif_options">Tetapan</string>
     <string name="onthego_notif_error">Tidak dapat memulakan On-The-Go</string>
-    <string name="onthego_notif_restart">Restart On-The-Go</string>
-    <string name="onthego_notif_camera_changed">Camera mode changed</string>
-    <string name="onthego_transparency">Transparency</string>
-    <string name="onthego_front_camera">Use front camera</string>
-    <string name="onthego_service_toggle">Automatically restart service</string>
-    <string name="onthego_channel_name">Main</string>
+    <string name="onthego_notif_restart">Mulakan semula On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Mod kamera berubah</string>
+    <string name="onthego_transparency">Ketelusan</string>
+    <string name="onthego_front_camera">Guna kamera depan</string>
+    <string name="onthego_service_toggle">Mulakan semula servis secara automatik</string>
+    <string name="onthego_channel_name">Utama</string>
     <string name="global_action_onthego">On-The-Go</string>
     <!-- Alert slide extras -->
     <string name="volume_ringer_priority_only">Priority</string>

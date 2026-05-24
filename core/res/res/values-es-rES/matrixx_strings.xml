@@ -11,7 +11,7 @@
     <string name="system_restart_title">Reinicio de sistema requerido</string>
     <string name="system_restart_message">Para que los cambios tengan efecto, se requiere reiniciar el sistema. ¿Reiniciar el sistema ahora?</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">Reinicio de UI de sistema requerido</string>
+    <string name="systemui_restart_title">Reinicio de Ui de sistema requerido</string>
     <string name="systemui_restart_message">Para que todos los cambios surtan efecto, es necesario reiniciar SystemUI. ¿Reiniciar SystemUI ahora?</string>
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Reinicio de lanzador requerido</string>
