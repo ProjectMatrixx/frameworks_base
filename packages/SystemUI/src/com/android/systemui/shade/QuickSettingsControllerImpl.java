@@ -215,7 +215,8 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
 
     private static final float SWIPE_THRESHOLD = 100f;
     private static final float SWIPE_VELOCITY_THRESHOLD = 500f;
-    private static final long SWIPE_FADE_DURATION_MS = 200L;
+    private static final long SWIPE_ANIM_DURATION_MS = 280L;
+    private static final float SWIPE_SLIDE_FRACTION = 0.28f;
 
     /**
      * The padding between the start of notifications and the qs boundary on the lockscreen.
@@ -322,10 +323,12 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
     private boolean mQsSplitShadeEnabledLegacy;
     private boolean mSwipeInProgress = false;
     private boolean mHorizontalSwipeConsuming = false;
+    private ValueAnimator mSplitShadeSwipeAnimator = null;
 
     private final Region mInterceptRegion = new Region();
     /** The end bounds of a clipping animation. */
     private final Rect mClippingAnimationEndBounds = new Rect();
+    private boolean mLastSwipeToQs = false;
     private final Rect mLastClipBounds = new Rect();
 
     /** The animator for the qs clipping bounds. */
@@ -1857,6 +1860,7 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
         if (mShadeLog != null) {
             mShadeLog.d("Horizontal swipe: navigating to notifications");
         }
+        mLastSwipeToQs = false;
         animateSplitShadeTransition(false /* toQs */);
     }
 
@@ -1864,6 +1868,7 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
         if (mShadeLog != null) {
             mShadeLog.d("Horizontal swipe: navigating to QS");
         }
+        mLastSwipeToQs = true;
         animateSplitShadeTransition(true /* toQs */);
     }
 
@@ -1883,40 +1888,82 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
         }
 
         final android.view.View outView = toQs ? nsslView : qsView;
-        final android.view.View inView  = toQs ? qsView  : nsslView;
+        final android.view.View inView  = toQs ? qsView   : nsslView;
+
+        final int refWidth = Math.max(outView.getWidth(), inView.getWidth());
+        final float slideAmt = refWidth > 0
+                ? refWidth * SWIPE_SLIDE_FRACTION
+                : 120f;
+
+        final float outEndX = toQs ? -slideAmt : slideAmt;
+        final float inStartX = toQs ? slideAmt : -slideAmt;
 
         outView.setAlpha(1f);
+        outView.setTranslationX(0f);
+
         inView.setAlpha(0f);
-        inView.setVisibility(android.view.View.VISIBLE);
+        inView.setTranslationX(inStartX);
+
+        outView.setVisibility(View.VISIBLE);
+        inView.setVisibility(View.VISIBLE);
 
         if (toQs) {
             setExpandImmediate(true);
-            updateQsState();
         }
 
         ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
-        animator.setDuration(SWIPE_FADE_DURATION_MS);
+        animator.setDuration(SWIPE_ANIM_DURATION_MS);
         animator.setInterpolator(Interpolators.FAST_OUT_SLOW_IN);
         animator.addUpdateListener(anim -> {
-            float f = (float) anim.getAnimatedValue();
-            outView.setAlpha(1f - f);
-            inView.setAlpha(f);
+            final float fraction = (float) anim.getAnimatedValue();
+            outView.setAlpha(1f - fraction);
+            inView.setAlpha(fraction);
+            outView.setTranslationX(outEndX * fraction);
+            inView.setTranslationX(inStartX * (1f - fraction));
+            mShadeHeaderController.setQsExpandedFraction(toQs ? fraction : 1f - fraction);
+            mShadeHeaderController.setShadeExpandedFraction(mShadeExpandedFraction);
         });
         animator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
+            private void resetViews() {
                 outView.setAlpha(1f);
                 inView.setAlpha(1f);
+                outView.setTranslationX(0f);
+                inView.setTranslationX(0f);
+                mSplitShadeSwipeAnimator = null;
+                mHorizontalSwipeConsuming = false;
+                mConflictingExpansionGesture = false;
+                setTracking(false);
+                cancelExpansionAnimation();
+                setSwipeInProgress(false);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                resetViews();
                 if (toQs) {
-                    flingQs(0, FLING_EXPAND);
+                    setExpansionHeight(getMaxExpansionHeight());
+                    updateQsState();
+                    mShadeHeaderController.setQsExpandedFraction(1f);
+                    mShadeHeaderController.setQsVisible(true);
                 } else {
                     setExpandImmediate(false);
                     setTracking(false);
+                    setExpansionHeight(getMinExpansionHeight());
                     updateQsState();
-                    flingQs(0, FLING_COLLAPSE);
+                    mShadeHeaderController.setQsExpandedFraction(0f);
+                    mShadeHeaderController.setQsVisible(false);
                 }
             }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                resetViews();
+                updateQsState();
+                mShadeHeaderController.setQsExpandedFraction(toQs ? 0f : 1f);
+                mShadeHeaderController.setQsVisible(!toQs);
+            }
         });
+        mSplitShadeSwipeAnimator = animator;
         animator.start();
     }
 
@@ -1931,6 +1978,11 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
 
             if (action == MotionEvent.ACTION_DOWN) {
                 mHorizontalSwipeConsuming = false;
+                if (mSplitShadeSwipeAnimator != null) {
+                    mSplitShadeSwipeAnimator.cancel();
+                    mSplitShadeSwipeAnimator = null;
+                }
+                cancelExpansionAnimation();
             }
 
             if (mHorizontalSwipeDetector != null) {
