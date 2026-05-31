@@ -5,35 +5,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Settings Restart -->
-    <string name="settings_restart_title">Settings restart required</string>
-    <string name="settings_restart_message">For all changes to take effect, a Settings app restart is required. Restart Settings app now?</string>
+    <string name="settings_restart_title">Redémarrage des paramètres requis</string>
+    <string name="settings_restart_message">Pour que toutes les modifications prennent effet, un redémarrage de l\'application Paramètres est nécessaire. Redémarrer l\'application Paramètres maintenant ?</string>
     <!-- System Reboot -->
-    <string name="system_restart_title">System restart required</string>
-    <string name="system_restart_message">For all the changes to take effect, a system restart is required. Perform system restart now?</string>
+    <string name="system_restart_title">Redémarrage du système requis</string>
+    <string name="system_restart_message">Pour que toutes les modifications prennent effet, un redémarrage du système est nécessaire. Redémarrer le système maintenant ?</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">SystemUI restart required</string>
-    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+    <string name="systemui_restart_title">Redémarrage de SystemUI est nécessaire</string>
+    <string name="systemui_restart_message">Afin que toutes les modifications soient prises en compte, un redémarrage de SystemUI est nécessaire. Voulez-vous redémarrer SystemUI maintenant ?</string>
     <!-- Launcher Restart -->
-    <string name="launcher_restart_title">Launcher restart required</string>
-    <string name="launcher_restart_message">For all changes to take effect, a Launcher restart is required. Restart Launcher now?</string>
+    <string name="launcher_restart_title">Redémarrage du lanceur requis</string>
+    <string name="launcher_restart_message">Afin que toutes les modifications soient prises en compte, un redémarrage du lanceur est nécessaire. Voulez-vous redémarrer le lanceur maintenant ?</string>
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to Pasty</string>
+    <string name="aerr_copy">Copier l\'URL du rapport d\'erreur</string>
+    <string name="url_copy_success">URL copiée avec succès</string>
+    <string name="url_copy_failed">Une erreur est survenue lors du téléchargement du rapport sur Pasty</string>
     <!-- Pocket Lock -->
-    <string name="pocket_mode_title">Pocket mode is active</string>
-    <string name="pocket_mode_illustration_description">Illustration of phone in pocket</string>
-    <string name="pocket_mode_instructions_header">To use your phone:</string>
-    <string name="pocket_mode_instruction_step1">1. Ensure the blue area (proximity sensor) shown above is unobstructed and free from dirt or dust.</string>
-    <string name="pocket_mode_instruction_step2">2. Press and hold the power button to exit pocket mode.</string>
+    <string name="pocket_mode_title">Le mode poche est activé</string>
+    <string name="pocket_mode_illustration_description">Illustration d\'un téléphone dans une poche</string>
+    <string name="pocket_mode_instructions_header">Pour utiliser votre téléphone :</string>
+    <string name="pocket_mode_instruction_step1">1. Assurez-vous que la zone bleue (capteur de proximité) indiquée ci-dessus est dégagée et exempte de saleté ou de poussière.</string>
+    <string name="pocket_mode_instruction_step2">2. Appuyez et maintenez le bouton d\'alimentation pour sortir du mode poche.</string>
     <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+    <string name="volume_dialog_ringer_guidance_normal">Sonnerie activée pour les notifications et les appels</string>
     <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Sleep Mode</string>
-    <string name="sleep_mode_notification_title">Sleep mode enabled</string>
-    <string name="sleep_mode_notification_content">Tap to turn off sleep mode</string>
-    <string name="sleep_mode_enabled_toast">Sleep mode turned on</string>
-    <string name="sleep_mode_disabled_toast">Sleep mode turned off</string>
+    <string name="notification_channel_sleep">Mode veille</string>
+    <string name="sleep_mode_notification_title">Mode veille activé</string>
+    <string name="sleep_mode_notification_content">Appuyer pour désactiver le mode veille</string>
+    <string name="sleep_mode_enabled_toast">Mode veille activé</string>
+    <string name="sleep_mode_disabled_toast">Mode veille désactivé</string>
     <!-- GameSpace -->
-    <string name="gamespace_new_game_added"><xliff:g id="name" example="MyApp">%s</xliff:g> added to GameSpace</string>
+    <string name="gamespace_new_game_added"><xliff:g id="name" example="MyApp">%s</xliff:g> ajouté a GameSpace</string>
 </resources>
