@@ -7,72 +7,72 @@
     <!-- Statusbar Icons -->
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_data_saver">Économiseur de données</string>
-    <string name="status_bar_call_strength">Call strength</string>
+    <string name="status_bar_call_strength">Puissance du réseau</string>
     <!-- Notification counter -->
     <!-- Name of the roaming status bar icon. -->
-    <string name="status_bar_roaming">Roaming indicator</string>
+    <string name="status_bar_roaming">Indicateur d\'itinérance</string>
     <!-- Name of the HD calling status bar icon. -->
-    <string name="status_bar_hd_calling">HD calling (VoLTE/VoNR)</string>
+    <string name="status_bar_hd_calling">Appel HD (VoLTE/VoNR)</string>
     <!-- Name of the VoWiFi status bar icon. -->
-    <string name="status_bar_vowifi">Wi-Fi calling (VoWiFi)</string>
+    <string name="status_bar_vowifi">Appel Wi-Fi (VoWiFi)</string>
     <!-- Data disabled icon -->
-    <string name="data_disabled_icon_title">Data disabled icon</string>
+    <string name="data_disabled_icon_title">Icône Données désactivées</string>
     <!-- Disable stacked mobile icons -->
-    <string name="disable_stacked_mobile_icons_title">Disable combined data icon</string>
+    <string name="disable_stacked_mobile_icons_title">Désactiver l\'icône de données combinées</string>
     <!-- 4G icon instead LTE -->
-    <string name="fourg_icon_title">4G icon</string>
+    <string name="fourg_icon_title">Icône 4G</string>
     <!-- Weather -->
-    <string name="weather_condition_clouds">Cloudy</string>
-    <string name="weather_condition_rain">Rainy</string>
-    <string name="weather_condition_clear">Clear Sky</string>
-    <string name="weather_condition_storm">Stormy</string>
-    <string name="weather_condition_snow">Snowy</string>
-    <string name="weather_condition_wind">Windy</string>
-    <string name="weather_condition_mist">Misty</string>
+    <string name="weather_condition_clouds">Nuageux</string>
+    <string name="weather_condition_rain">Pluvieux</string>
+    <string name="weather_condition_clear">Ciel dégagé</string>
+    <string name="weather_condition_storm">Orageux</string>
+    <string name="weather_condition_snow">Neigeux</string>
+    <string name="weather_condition_wind">Venteux</string>
+    <string name="weather_condition_mist">Brumeux</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash Charging</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Charge Rapide (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Charge Rapide</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Warp Charging</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Charge Warp</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC Charging</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Charge VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Charge VOOC</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo Charging</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Charge Turbo</string>
     <!-- Smartspace -->
-    <string name="accessibility_next_alarm">Next alarm at %s</string>
-    <string name="accessibility_smartspace_page">Page %1$d of %2$d</string>
-    <string name="active_mode_content_description">%1$s is on</string>
-    <string name="music_controls_no_title">No title</string>
+    <string name="accessibility_next_alarm">Prochaine alarme à %s</string>
+    <string name="accessibility_smartspace_page">Page %1$d sur %2$d</string>
+    <string name="active_mode_content_description">%1$s est activé</string>
+    <string name="music_controls_no_title">Sans titre</string>
     <string name="smartspace_content_desc">At a glance</string>
     <string name="smartspace_flight_qr_code">QR code</string>
-    <string name="smartspace_role_desc">View</string>
+    <string name="smartspace_role_desc">Vue</string>
     <!-- Button to restart SystemUI, within the Restart Options dialog -->
     <string name="global_action_restart_systemui">SystemUI</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">On-The-Go activated</string>
-    <string name="onthego_notif_title">On-The-Go is active</string>
-    <string name="onthego_notif_stop">Stop</string>
+    <string name="onthego_notif_ticker">Mode On-The-Go activé</string>
+    <string name="onthego_notif_title">Le mode On-The-Go est activé</string>
+    <string name="onthego_notif_stop">Arrêter</string>
     <string name="onthego_notif_options">Options</string>
-    <string name="onthego_notif_error">Unable to start On-The-Go</string>
-    <string name="onthego_notif_restart">Restart On-The-Go</string>
-    <string name="onthego_notif_camera_changed">Camera mode changed</string>
-    <string name="onthego_transparency">Transparency</string>
-    <string name="onthego_front_camera">Use front camera</string>
-    <string name="onthego_service_toggle">Automatically restart service</string>
-    <string name="onthego_channel_name">Main</string>
+    <string name="onthego_notif_error">Impossible de démarrer le mode On-The-Go</string>
+    <string name="onthego_notif_restart">Redémarrer le mode On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Mode de caméra modifié</string>
+    <string name="onthego_transparency">Transparence</string>
+    <string name="onthego_front_camera">Utiliser la caméra frontale</string>
+    <string name="onthego_service_toggle">Redémarrer automatiquement le service</string>
+    <string name="onthego_channel_name">Principal</string>
     <string name="global_action_onthego">On-The-Go</string>
     <!-- Alert slide extras -->
-    <string name="volume_ringer_priority_only">Priority</string>
-    <string name="volume_ringer_alarms_only">Alarms</string>
-    <string name="volume_ringer_dnd">DnD</string>
-    <string name="tristate_flashlight">Torch</string>
-    <string name="tristate_flashlight_on">Torch on</string>
-    <string name="tristate_flashlight_off">Torch off</string>
-    <string name="tristate_flashlight_blink">Torch blink</string>
-    <string name="tristate_brightness_bright">Max-brightness</string>
+    <string name="volume_ringer_priority_only">Priorité</string>
+    <string name="volume_ringer_alarms_only">Alarmes</string>
+    <string name="volume_ringer_dnd">NPD</string>
+    <string name="tristate_flashlight">Torche</string>
+    <string name="tristate_flashlight_on">Torche activée</string>
+    <string name="tristate_flashlight_off">Torche désactivée</string>
+    <string name="tristate_flashlight_blink">Clignotement lampe torche</string>
+    <string name="tristate_brightness_bright">Luminosité max</string>
     <string name="tristate_brightness_dark">Min-brightness</string>
     <string name="tristate_brightness_auto">Auto-brightness</string>
     <string name="tristate_rotation_auto">Auto-rotate</string>
@@ -139,66 +139,66 @@
     <!-- Text while recognizing face -->
     <string name="face_unlock_recognizing">Recognizing face...</string>
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
-    <string name="screenrecord_delete_label">Delete</string>
+    <string name="screenrecord_delete_label">Supprimer</string>
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
-    <string name="screenrecord_delete_description">Screen recording deleted</string>
+    <string name="screenrecord_delete_description">Enregistrement d\'écran supprimé</string>
     <!-- Volume QS Tile -->
     <string name="quick_settings_volume_label">Volume</string>
-    <string name="qs_volume_dialog_title">Volume Control</string>
-    <string name="qs_volume_dialog_mute">Mute</string>
+    <string name="qs_volume_dialog_title">Contrôle du volume</string>
+    <string name="qs_volume_dialog_mute">Muet</string>
     <!-- Internet -->
-    <string name="status_bar_settings_network_speed">Internet speed</string>
+    <string name="status_bar_settings_network_speed">Vitesse Internet</string>
     <!-- USB Mode Picker -->
-    <string name="usb_mode_picker_title">Select USB mode</string>
-    <string name="usb_mode_file_transfer">File transfer</string>
-    <string name="usb_mode_tethering">USB tethering</string>
+    <string name="usb_mode_picker_title">Sélectionner le mode USB</string>
+    <string name="usb_mode_file_transfer">Transfert de fichiers</string>
+    <string name="usb_mode_tethering">Partage de connexion USB</string>
     <string name="usb_mode_midi">MIDI</string>
-    <string name="usb_mode_photo_transfer">Photo &amp; video transfer</string>
-    <string name="usb_mode_webcam">USB Webcam</string>
-    <string name="usb_mode_charging_only">Charging only</string>
-    <string name="usb_charging_status">USB charging is on</string>
+    <string name="usb_mode_photo_transfer">Transfert photo et vidéo</string>
+    <string name="usb_mode_webcam">Webcam USB</string>
+    <string name="usb_mode_charging_only">Charge uniquement</string>
+    <string name="usb_charging_status">La charge USB est activée</string>
     <!-- USB function dialog - copied from Settings -->
-    <string name="usb_use_charging_only">No data transfer</string>
-    <string name="usb_use_file_transfers">File Transfer</string>
-    <string name="usb_use_photo_transfers">PTP</string>
+    <string name="usb_use_charging_only">Aucun transfert de données</string>
+    <string name="usb_use_file_transfers">Transfert de fichiers</string>
+    <string name="usb_use_photo_transfers">Transfert de photos (PTP)</string>
     <string name="usb_use_uvc_webcam">Webcam</string>
-    <string name="usb_use_tethering">USB tethering</string>
+    <string name="usb_use_tethering">Partage de connexion USB</string>
     <string name="usb_use_MIDI">MIDI</string>
-    <string name="usb_use">Use USB for</string>
+    <string name="usb_use">Utilisez l\'USB pour</string>
     <!-- System Theme Re-evaluation Toast -->
-    <string name="reevaluating_system_theme">Re-evaluating system theme.. Please wait for a few seconds</string>
-    <string name="default_user_name">Project Matrixx</string>
+    <string name="reevaluating_system_theme">Ré-évaluation du thème du système... Veuillez patienter quelques secondes</string>
+    <string name="default_user_name">Projet Matrixx</string>
     <!-- VPN tethering QS tile -->
-    <string name="vpn_tethering_label">VPN tethering</string>
-    <string name="vpn_tethering_changed_off">VPN tethering turned off.</string>
-    <string name="vpn_tethering_changed_on">VPN tethering turned on.</string>
+    <string name="vpn_tethering_label">Partage de connexion VPN</string>
+    <string name="vpn_tethering_changed_off">Partage de connexion VPN désactivé.</string>
+    <string name="vpn_tethering_changed_on">Partage de connexion VPN activé.</string>
     <!-- Clock Weather -->
-    <string name="clock_ide_weather_data_unavailable">null</string>
+    <string name="clock_ide_weather_data_unavailable">nul</string>
     <!-- Sleep Mode -->
-    <string name="quick_settings_sleep_mode_label">Sleep Mode</string>
+    <string name="quick_settings_sleep_mode_label">Mode veille</string>
     <!-- AxDynamicBar strings [CHAR LIMIT=NONE] -->
-    <string name="ax_dynamic_bar_timer">Timer</string>
-    <string name="ax_dynamic_bar_stopwatch">Stopwatch</string>
-    <string name="ax_dynamic_bar_alarm">Alarm</string>
-    <string name="ax_dynamic_bar_flashlight">Flashlight</string>
-    <string name="ax_dynamic_bar_hotspot">Hotspot</string>
-    <string name="ax_dynamic_bar_hotspot_active">Hotspot Active</string>
-    <string name="ax_dynamic_bar_vpn_active">VPN Active</string>
-    <string name="ax_dynamic_bar_screen_recording">Screen Recording</string>
-    <string name="ax_dynamic_bar_now_playing">Now Playing</string>
-    <string name="ax_dynamic_bar_media_output">Media output</string>
-    <string name="ax_dynamic_bar_sound_mode">Sound Mode</string>
-    <string name="ax_dynamic_bar_silent">Silent</string>
-    <string name="ax_dynamic_bar_vibrate">Vibrate</string>
-    <string name="ax_dynamic_bar_ring">Ring</string>
-    <string name="ax_dynamic_bar_charging">Charging</string>
-    <string name="ax_dynamic_bar_wireless">Wireless</string>
-    <string name="ax_dynamic_bar_saver">Saver</string>
-    <string name="ax_dynamic_bar_music">Music</string>
-    <string name="ax_dynamic_bar_copied">Copied</string>
-    <string name="ax_dynamic_bar_copied_feedback">Copied!</string>
-    <string name="ax_dynamic_bar_image_copied">Image copied</string>
-    <string name="ax_dynamic_bar_copy_image">Copy Image</string>
+    <string name="ax_dynamic_bar_timer">Minuteur</string>
+    <string name="ax_dynamic_bar_stopwatch">Chronomètre</string>
+    <string name="ax_dynamic_bar_alarm">Alarme</string>
+    <string name="ax_dynamic_bar_flashlight">Lampe torche</string>
+    <string name="ax_dynamic_bar_hotspot">Point d\'accès</string>
+    <string name="ax_dynamic_bar_hotspot_active">Partage de connexion actif</string>
+    <string name="ax_dynamic_bar_vpn_active">VPN actif</string>
+    <string name="ax_dynamic_bar_screen_recording">Enregistrement d\'écran</string>
+    <string name="ax_dynamic_bar_now_playing">En cours de lecture</string>
+    <string name="ax_dynamic_bar_media_output">Sortie multimédia</string>
+    <string name="ax_dynamic_bar_sound_mode">Mode sonore</string>
+    <string name="ax_dynamic_bar_silent">Silencieux</string>
+    <string name="ax_dynamic_bar_vibrate">Vibreur</string>
+    <string name="ax_dynamic_bar_ring">Sonnerie</string>
+    <string name="ax_dynamic_bar_charging">En charge</string>
+    <string name="ax_dynamic_bar_wireless">Sans fil</string>
+    <string name="ax_dynamic_bar_saver">Économiseur</string>
+    <string name="ax_dynamic_bar_music">Musique</string>
+    <string name="ax_dynamic_bar_copied">Copié</string>
+    <string name="ax_dynamic_bar_copied_feedback">Copié!</string>
+    <string name="ax_dynamic_bar_image_copied">Image copiée</string>
+    <string name="ax_dynamic_bar_copy_image">Copier l\'image</string>
     <string name="ax_dynamic_bar_clipboard_image_desc">Clipboard image</string>
     <string name="ax_dynamic_bar_image">Image</string>
     <string name="ax_dynamic_bar_url">URL</string>
