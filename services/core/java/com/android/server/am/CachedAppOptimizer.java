@@ -1956,7 +1956,7 @@ public class CachedAppOptimizer {
                     }
                     synchronized (mProcLock) {
                         if (proc.getCurAdj() >= ProcessList.CACHED_APP_MIN_ADJ) {
-                            compactApp(proc, CompactProfile.ANON, CompactSource.APP, false);
+                            compactApp(proc, CompactProfile.SOME, CompactSource.APP, false);
                         }
                     }
                     break;
