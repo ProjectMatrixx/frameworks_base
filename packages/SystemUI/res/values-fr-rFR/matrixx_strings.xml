@@ -11,10 +11,6 @@
     <!-- Notification counter -->
     <!-- Name of the roaming status bar icon. -->
     <string name="status_bar_roaming">Indicateur d\'itinérance</string>
-    <!-- Name of the HD calling status bar icon. -->
-    <string name="status_bar_hd_calling">Appel HD (VoLTE/VoNR)</string>
-    <!-- Name of the VoWiFi status bar icon. -->
-    <string name="status_bar_vowifi">Appel Wi-Fi (VoWiFi)</string>
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Icône Données désactivées</string>
     <!-- Disable stacked mobile icons -->
@@ -64,21 +60,6 @@
     <string name="onthego_service_toggle">Redémarrer automatiquement le service</string>
     <string name="onthego_channel_name">Principal</string>
     <string name="global_action_onthego">On-The-Go</string>
-    <!-- Alert slide extras -->
-    <string name="volume_ringer_priority_only">Priorité</string>
-    <string name="volume_ringer_alarms_only">Alarmes</string>
-    <string name="volume_ringer_dnd">NPD</string>
-    <string name="tristate_flashlight">Torche</string>
-    <string name="tristate_flashlight_on">Torche activée</string>
-    <string name="tristate_flashlight_off">Torche désactivée</string>
-    <string name="tristate_flashlight_blink">Clignotement lampe torche</string>
-    <string name="tristate_brightness_bright">Luminosité max</string>
-    <string name="tristate_brightness_dark">Luminosité minimum</string>
-    <string name="tristate_brightness_auto">Luminosité auto</string>
-    <string name="tristate_rotation_auto">Rotation automatique</string>
-    <string name="tristate_rotation_0">Portrait</string>
-    <string name="tristate_rotation_90">Paysage (90°)</string>
-    <string name="tristate_rotation_270">Paysage (270°)</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">utilisé aujourd\'hui</string>
     <string name="usage_data_weekly">utilisé cette semaine</string>
@@ -138,6 +119,13 @@
     <string name="qs_preferred_network_unsupported">Non supporté</string>
     <!-- Text while recognizing face -->
     <string name="face_unlock_recognizing">Reconnaissance faciale...</string>
+    <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
+    <plurals name="quick_settings_internet_hotspot_summary_num_devices">
+        <item quantity="one">%d device connected</item>
+        <item quantity="other">%d devices connected</item>
+    </plurals>
+    <!-- 5G toggle in Internet Dialog -->
+    <string name="enable_fiveg">Enable 5G</string>
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
     <string name="screenrecord_delete_label">Supprimer</string>
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
@@ -148,15 +136,9 @@
     <string name="qs_volume_dialog_mute">Muet</string>
     <!-- Internet -->
     <string name="status_bar_settings_network_speed">Vitesse Internet</string>
-    <!-- USB Mode Picker -->
-    <string name="usb_mode_picker_title">Sélectionner le mode USB</string>
-    <string name="usb_mode_file_transfer">Transfert de fichiers</string>
-    <string name="usb_mode_tethering">Partage de connexion USB</string>
-    <string name="usb_mode_midi">MIDI</string>
-    <string name="usb_mode_photo_transfer">Transfert photo et vidéo</string>
-    <string name="usb_mode_webcam">Webcam USB</string>
-    <string name="usb_mode_charging_only">Charge uniquement</string>
-    <string name="usb_charging_status">La charge USB est activée</string>
+    <!-- System Theme Re-evaluation Toast -->
+    <string name="reevaluating_system_theme">Ré-évaluation du thème du système... Veuillez patienter quelques secondes</string>
+    <string name="default_user_name">Lunaris AOSP</string>
     <!-- USB function dialog - copied from Settings -->
     <string name="usb_use_charging_only">Aucun transfert de données</string>
     <string name="usb_use_file_transfers">Transfert de fichiers</string>
@@ -165,17 +147,12 @@
     <string name="usb_use_tethering">Partage de connexion USB</string>
     <string name="usb_use_MIDI">MIDI</string>
     <string name="usb_use">Utilisez l\'USB pour</string>
-    <!-- System Theme Re-evaluation Toast -->
-    <string name="reevaluating_system_theme">Ré-évaluation du thème du système... Veuillez patienter quelques secondes</string>
-    <string name="default_user_name">Projet Matrixx</string>
     <!-- VPN tethering QS tile -->
     <string name="vpn_tethering_label">Partage de connexion VPN</string>
     <string name="vpn_tethering_changed_off">Partage de connexion VPN désactivé.</string>
     <string name="vpn_tethering_changed_on">Partage de connexion VPN activé.</string>
     <!-- Clock Weather -->
     <string name="clock_ide_weather_data_unavailable">nul</string>
-    <!-- Sleep Mode -->
-    <string name="quick_settings_sleep_mode_label">Mode veille</string>
     <!-- AxDynamicBar strings [CHAR LIMIT=NONE] -->
     <string name="ax_dynamic_bar_timer">Minuteur</string>
     <string name="ax_dynamic_bar_stopwatch">Chronomètre</string>
@@ -272,10 +249,18 @@
     <string name="ax_dynamic_bar_sports_upcoming">À venir</string>
     <!-- Screenshot -->
     <string name="quick_settings_screenshot_label">Capture d\'écran</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Mode veille</string>
+    <!-- Wifi Standard. -->
+    <string name="status_bar_wifi_standard">Wifi Standard</string>
     <!-- Smart Pixels -->
     <string name="quick_settings_smart_pixels_label">Pixels intelligents</string>
     <string name="quick_settings_smart_pixels_on">Activé</string>
     <string name="quick_settings_smart_pixels_off">Désactivé</string>
     <string name="smart_pixels_percent_label">Pourcentage de pixels</string>
     <string name="smart_pixels_percent_format"><xliff:g id="percent" example="25">%d</xliff:g>%%</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">Appel HD (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Appel Wi-Fi (VoWiFi)</string>
 </resources>
