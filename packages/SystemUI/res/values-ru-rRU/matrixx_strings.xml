@@ -11,10 +11,6 @@
     <!-- Notification counter -->
     <!-- Name of the roaming status bar icon. -->
     <string name="status_bar_roaming">Индикатор роуминга</string>
-    <!-- Name of the HD calling status bar icon. -->
-    <string name="status_bar_hd_calling">HD звонки (VoLTE/VoNR)</string>
-    <!-- Name of the VoWiFi status bar icon. -->
-    <string name="status_bar_vowifi">Wi-Fi звонки (VoWiFi)</string>
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Значок отключенной передачи данных</string>
     <!-- Disable stacked mobile icons -->
@@ -64,21 +60,6 @@
     <string name="onthego_service_toggle">Автоматически перезапускать службу</string>
     <string name="onthego_channel_name">Основное</string>
     <string name="global_action_onthego">Режим \"На ходу\"</string>
-    <!-- Alert slide extras -->
-    <string name="volume_ringer_priority_only">Важные</string>
-    <string name="volume_ringer_alarms_only">Будильники</string>
-    <string name="volume_ringer_dnd">Не беспокоить</string>
-    <string name="tristate_flashlight">Фонарик</string>
-    <string name="tristate_flashlight_on">Фонарик включён</string>
-    <string name="tristate_flashlight_off">Фонарик выключен</string>
-    <string name="tristate_flashlight_blink">Мигание фонарика</string>
-    <string name="tristate_brightness_bright">Максимальная яркость</string>
-    <string name="tristate_brightness_dark">Минимальная яркость</string>
-    <string name="tristate_brightness_auto">Автоматическая яркость</string>
-    <string name="tristate_rotation_auto">Авто поворот</string>
-    <string name="tristate_rotation_0">Вертикальная ориентация</string>
-    <string name="tristate_rotation_90">Горизонтальная ориентация (90°)</string>
-    <string name="tristate_rotation_270">Альбомная ориентация (270°)</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">использовано</string>
     <string name="usage_data_weekly">использовалось на этой неделе</string>
@@ -138,6 +119,15 @@
     <string name="qs_preferred_network_unsupported">Не поддерживается</string>
     <!-- Text while recognizing face -->
     <string name="face_unlock_recognizing">Распознавание лица...</string>
+    <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
+    <plurals name="quick_settings_internet_hotspot_summary_num_devices">
+        <item quantity="one">%d device connected</item>
+        <item quantity="few">%d devices connected</item>
+        <item quantity="many">%d devices connected</item>
+        <item quantity="other">%d devices connected</item>
+    </plurals>
+    <!-- 5G toggle in Internet Dialog -->
+    <string name="enable_fiveg">Enable 5G</string>
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
     <string name="screenrecord_delete_label">Удалить</string>
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
@@ -148,15 +138,9 @@
     <string name="qs_volume_dialog_mute">Без звука</string>
     <!-- Internet -->
     <string name="status_bar_settings_network_speed">Скорость интернета</string>
-    <!-- USB Mode Picker -->
-    <string name="usb_mode_picker_title">Выберите режим USB</string>
-    <string name="usb_mode_file_transfer">Передача файлов</string>
-    <string name="usb_mode_tethering">Точка доступа USB</string>
-    <string name="usb_mode_midi">Режим MIDI</string>
-    <string name="usb_mode_photo_transfer">Перенос фото &amp; видео</string>
-    <string name="usb_mode_webcam">USB веб-камера</string>
-    <string name="usb_mode_charging_only">Только зарядка</string>
-    <string name="usb_charging_status">Зарядка через USB включена</string>
+    <!-- System Theme Re-evaluation Toast -->
+    <string name="reevaluating_system_theme">Повторная оценка системной темы... Пожалуйста, подождите несколько секунд</string>
+    <string name="default_user_name">Lunaris AOSP</string>
     <!-- USB function dialog - copied from Settings -->
     <string name="usb_use_charging_only">Без передачи данных</string>
     <string name="usb_use_file_transfers">Передача файлов</string>
@@ -165,17 +149,12 @@
     <string name="usb_use_tethering">USB-модем</string>
     <string name="usb_use_MIDI">Режим MIDI</string>
     <string name="usb_use">Использовать USB для</string>
-    <!-- System Theme Re-evaluation Toast -->
-    <string name="reevaluating_system_theme">Повторная оценка системной темы... Пожалуйста, подождите несколько секунд</string>
-    <string name="default_user_name">Матрица проекта</string>
     <!-- VPN tethering QS tile -->
     <string name="vpn_tethering_label">VPN-модем</string>
     <string name="vpn_tethering_changed_off">VPN-модем отключен.</string>
     <string name="vpn_tethering_changed_on">VPN-модем включен.</string>
     <!-- Clock Weather -->
     <string name="clock_ide_weather_data_unavailable">пустой</string>
-    <!-- Sleep Mode -->
-    <string name="quick_settings_sleep_mode_label">Режим сна</string>
     <!-- AxDynamicBar strings [CHAR LIMIT=NONE] -->
     <string name="ax_dynamic_bar_timer">Таймер</string>
     <string name="ax_dynamic_bar_stopwatch">Секундомер</string>
@@ -272,10 +251,18 @@
     <string name="ax_dynamic_bar_sports_upcoming">Предстоящие</string>
     <!-- Screenshot -->
     <string name="quick_settings_screenshot_label">Скриншот</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Режим сна</string>
+    <!-- Wifi Standard. -->
+    <string name="status_bar_wifi_standard">Wifi Standard</string>
     <!-- Smart Pixels -->
     <string name="quick_settings_smart_pixels_label">Умные пиксели</string>
     <string name="quick_settings_smart_pixels_on">Включить</string>
     <string name="quick_settings_smart_pixels_off">Отключено</string>
     <string name="smart_pixels_percent_label">Процент пикселей</string>
     <string name="smart_pixels_percent_format"><xliff:g id="percent" example="25">%d</xliff:g>%%</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD звонки (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi звонки (VoWiFi)</string>
 </resources>
