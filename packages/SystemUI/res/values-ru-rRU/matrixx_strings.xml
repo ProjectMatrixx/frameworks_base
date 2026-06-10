@@ -140,7 +140,7 @@
     <string name="status_bar_settings_network_speed">Скорость интернета</string>
     <!-- System Theme Re-evaluation Toast -->
     <string name="reevaluating_system_theme">Повторная оценка системной темы... Пожалуйста, подождите несколько секунд</string>
-    <string name="default_user_name">Lunaris AOSP</string>
+    <string name="default_user_name">Матрица проекта</string>
     <!-- USB function dialog - copied from Settings -->
     <string name="usb_use_charging_only">Без передачи данных</string>
     <string name="usb_use_file_transfers">Передача файлов</string>
