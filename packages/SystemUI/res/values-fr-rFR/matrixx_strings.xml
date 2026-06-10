@@ -138,7 +138,7 @@
     <string name="status_bar_settings_network_speed">Vitesse Internet</string>
     <!-- System Theme Re-evaluation Toast -->
     <string name="reevaluating_system_theme">Ré-évaluation du thème du système... Veuillez patienter quelques secondes</string>
-    <string name="default_user_name">Lunaris AOSP</string>
+    <string name="default_user_name">Project Matrixx</string>
     <!-- USB function dialog - copied from Settings -->
     <string name="usb_use_charging_only">Aucun transfert de données</string>
     <string name="usb_use_file_transfers">Transfert de fichiers</string>
