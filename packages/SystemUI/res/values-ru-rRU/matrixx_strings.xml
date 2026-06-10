@@ -121,13 +121,13 @@
     <string name="face_unlock_recognizing">Распознавание лица...</string>
     <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
     <plurals name="quick_settings_internet_hotspot_summary_num_devices">
-        <item quantity="one">%d device connected</item>
-        <item quantity="few">%d devices connected</item>
-        <item quantity="many">%d devices connected</item>
-        <item quantity="other">%d devices connected</item>
+        <item quantity="one">Подключено устройств: %d</item>
+        <item quantity="few">Подключено устройств: %d</item>
+        <item quantity="many">Подключено устройств: %d</item>
+        <item quantity="other">Подключено устройств: %d</item>
     </plurals>
     <!-- 5G toggle in Internet Dialog -->
-    <string name="enable_fiveg">Enable 5G</string>
+    <string name="enable_fiveg">Включить 5G</string>
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
     <string name="screenrecord_delete_label">Удалить</string>
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
@@ -254,7 +254,7 @@
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Режим сна</string>
     <!-- Wifi Standard. -->
-    <string name="status_bar_wifi_standard">Wifi Standard</string>
+    <string name="status_bar_wifi_standard">Стандарт Wi-Fi</string>
     <!-- Smart Pixels -->
     <string name="quick_settings_smart_pixels_label">Умные пиксели</string>
     <string name="quick_settings_smart_pixels_on">Включить</string>
