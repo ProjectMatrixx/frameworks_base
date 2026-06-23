@@ -5,35 +5,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Settings Restart -->
-    <string name="settings_restart_title">Settings restart required</string>
-    <string name="settings_restart_message">For all changes to take effect, a Settings app restart is required. Restart Settings app now?</string>
+    <string name="settings_restart_title">Ayarların yeniden başlatılması gerekiyor</string>
+    <string name="settings_restart_message">Tüm değişikliklerin etkin olabilmesi için ayarların yeniden başlatılması gerekiyor. Ayarlar şimdi yeniden başlatılsın mı?</string>
     <!-- System Reboot -->
-    <string name="system_restart_title">System restart required</string>
-    <string name="system_restart_message">For all the changes to take effect, a system restart is required. Perform system restart now?</string>
+    <string name="system_restart_title">Sistemin yeniden başlatılması gerekiyor</string>
+    <string name="system_restart_message">Tüm değişikliklerin etkili olması için sistemin yeniden başlatılması gerekiyor. Sistem yeniden başlatılsın mı?</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">SystemUI restart required</string>
-    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+    <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekiyor</string>
+    <string name="systemui_restart_message">Tüm değişikliklerin etkili olması için Sistem Arayüzünün yeniden başlatılması gerekiyor. Şimdi yeniden başlatılsın mı?</string>
     <!-- Launcher Restart -->
-    <string name="launcher_restart_title">Launcher restart required</string>
-    <string name="launcher_restart_message">For all changes to take effect, a Launcher restart is required. Restart Launcher now?</string>
+    <string name="launcher_restart_title">Başlatıcının yeniden başlatılması gerekiyor</string>
+    <string name="launcher_restart_message">Tüm değişikliklerin etkili olması için başlatıcının yeniden başlatılması gerekiyor. Şimdi yeniden başlatılsın mı?</string>
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to Pasty</string>
+    <string name="aerr_copy">Kilitlenme günlüğü bağlantısını kopyala</string>
+    <string name="url_copy_success">Bağlantı başarıyla kopyalandı</string>
+    <string name="url_copy_failed">Günlük Pasty\'ye yüklenirken bir hata oluştu</string>
     <!-- Pocket Lock -->
-    <string name="pocket_mode_title">Pocket mode is active</string>
-    <string name="pocket_mode_illustration_description">Illustration of phone in pocket</string>
-    <string name="pocket_mode_instructions_header">To use your phone:</string>
-    <string name="pocket_mode_instruction_step1">1. Ensure the blue area (proximity sensor) shown above is unobstructed and free from dirt or dust.</string>
-    <string name="pocket_mode_instruction_step2">2. Press and hold the power button to exit pocket mode.</string>
+    <string name="pocket_mode_title">Cep modu etkin</string>
+    <string name="pocket_mode_illustration_description">Telefon cepte illüstrasyonu</string>
+    <string name="pocket_mode_instructions_header">Telefonunuzu kullanmak için:</string>
+    <string name="pocket_mode_instruction_step1">1. Yukarıda gösterilen mavi alanın (yakınlık sensörü) engellenmediğinden ve kir veya toz içinde olmadığından emin olun.</string>
+    <string name="pocket_mode_instruction_step2">2. Cep modundan çıkmak için güç düğmesine basılı tutun.</string>
     <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+    <string name="volume_dialog_ringer_guidance_normal">Çağrılar ve bildirimler telefonu çaldıracak</string>
     <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Sleep Mode</string>
-    <string name="sleep_mode_notification_title">Sleep mode enabled</string>
-    <string name="sleep_mode_notification_content">Tap to turn off sleep mode</string>
-    <string name="sleep_mode_enabled_toast">Sleep mode turned on</string>
-    <string name="sleep_mode_disabled_toast">Sleep mode turned off</string>
+    <string name="notification_channel_sleep">Uyku Modu</string>
+    <string name="sleep_mode_notification_title">Uyku modu etkinleştirildi</string>
+    <string name="sleep_mode_notification_content">Uyku modunu kapatmak için dokunun</string>
+    <string name="sleep_mode_enabled_toast">Uyku modu açıldı</string>
+    <string name="sleep_mode_disabled_toast">Uyku modu kapatıldı</string>
     <!-- GameSpace -->
-    <string name="gamespace_new_game_added"><xliff:g id="name" example="MyApp">%s</xliff:g> added to GameSpace</string>
+    <string name="gamespace_new_game_added"><xliff:g id="name" example="MyApp">%s</xliff:g> Oyun Alanı\'na eklendi</string>
 </resources>
