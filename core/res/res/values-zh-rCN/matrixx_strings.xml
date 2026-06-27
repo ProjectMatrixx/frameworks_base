@@ -6,34 +6,34 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Settings Restart -->
     <string name="settings_restart_title">需要重启设置</string>
-    <string name="settings_restart_message">For all changes to take effect, a Settings app restart is required. Restart Settings app now?</string>
+    <string name="settings_restart_message">要使更改生效，需要重启设置。现在重启设置应用吗？</string>
     <!-- System Reboot -->
-    <string name="system_restart_title">System restart required</string>
-    <string name="system_restart_message">For all the changes to take effect, a system restart is required. Perform system restart now?</string>
+    <string name="system_restart_title">需要重启系统</string>
+    <string name="system_restart_message">要使更改生效，需要重启系统。现在重启系统吗？</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">SystemUI restart required</string>
-    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+    <string name="systemui_restart_title">需要重启系统界面</string>
+    <string name="systemui_restart_message">要使所有更改生效，需要重启系统界面。现在重启系统界面吗？</string>
     <!-- Launcher Restart -->
-    <string name="launcher_restart_title">Launcher restart required</string>
-    <string name="launcher_restart_message">For all changes to take effect, a Launcher restart is required. Restart Launcher now?</string>
+    <string name="launcher_restart_title">需要重启系统桌面</string>
+    <string name="launcher_restart_message">要使所有更改生效，需要重启系统桌面。现在重启系统桌面吗？</string>
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to Pasty</string>
+    <string name="aerr_copy">复制崩溃日志URL</string>
+    <string name="url_copy_success">已成功复制URL</string>
+    <string name="url_copy_failed">将日志上传到 Pasty 时出错</string>
     <!-- Pocket Lock -->
-    <string name="pocket_mode_title">Pocket mode is active</string>
-    <string name="pocket_mode_illustration_description">Illustration of phone in pocket</string>
-    <string name="pocket_mode_instructions_header">To use your phone:</string>
-    <string name="pocket_mode_instruction_step1">1. Ensure the blue area (proximity sensor) shown above is unobstructed and free from dirt or dust.</string>
-    <string name="pocket_mode_instruction_step2">2. Press and hold the power button to exit pocket mode.</string>
+    <string name="pocket_mode_title">口袋模式已启用</string>
+    <string name="pocket_mode_illustration_description">口袋检测说明</string>
+    <string name="pocket_mode_instructions_header">如需使用您的手机：</string>
+    <string name="pocket_mode_instruction_step1">1. 确保蓝色区域（距离传感器）不被遮挡，无泥土或灰尘。</string>
+    <string name="pocket_mode_instruction_step2">2. 按住电源键退出口袋模式。</string>
     <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+    <string name="volume_dialog_ringer_guidance_normal">来电或通知时响铃</string>
     <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Sleep Mode</string>
-    <string name="sleep_mode_notification_title">Sleep mode enabled</string>
-    <string name="sleep_mode_notification_content">Tap to turn off sleep mode</string>
-    <string name="sleep_mode_enabled_toast">Sleep mode turned on</string>
-    <string name="sleep_mode_disabled_toast">Sleep mode turned off</string>
+    <string name="notification_channel_sleep">睡眠模式</string>
+    <string name="sleep_mode_notification_title">睡眠模式已启用</string>
+    <string name="sleep_mode_notification_content">点击关闭睡眠模式</string>
+    <string name="sleep_mode_enabled_toast">睡眠模式已开启</string>
+    <string name="sleep_mode_disabled_toast">睡眠模式已关闭</string>
     <!-- GameSpace -->
     <string name="gamespace_new_game_added"><xliff:g id="name" example="MyApp">%s</xliff:g> 已添加到游戏空间</string>
 </resources>
